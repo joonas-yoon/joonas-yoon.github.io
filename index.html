@@ -3,38 +3,63 @@
 
 <head>
 	<meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
     
-	<title>Hello...</title>
+	<title>Joonas' Github Page</title>
 	
-    <!-- Bootstrap core CSS -->
-    <link href="/css/bootflat.min.css" rel="stylesheet">
+  <!-- Bootstrap core CSS -->
+  <link href="/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/css/font-awesome.min.css" rel="stylesheet">
+  <link href="/css/style.css" rel="stylesheet">
     
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="/js/html5shiv.min.js"></script>
-      <script src="/js/respond.min.js"></script>
-    <![endif]-->
-	<script src="/js/jquery-1.10.1.min.js"></script>
+	<script src="/js/jquery-1.11.0.min.js"></script>
 </head>
 
 <body>
-<div id="mainContent" class="container">
-	<p id="text">wait..</p>
-	<button id="btn">click me</button>
+
+<div class="parallax-container" data-parallax="scroll" data-position="top" data-bleed="10" data-image-src="/img/pexels-photo.jpeg" data-natural-width="1920" data-natural-height="1280" style="height: 100vh;">
+  <div style="text-align:center; color:white; padding-top: 40vh;">
+    <img src="https://scontent-icn1-1.xx.fbcdn.net/v/t1.0-9/12741907_1027470097309562_3267222814682050743_n.jpg?oh=78eb2f94724ecdc793cf97cdda95ba03&oe=58AB23AE" class="profile"/>
+    <h1 style="margin-top: 5px"><i>Joonas</i></h1>
+    <p>
+      <a href="https://www.github.com/joonas-yoon" class="icon-link">
+        <i class="fa fa-github-alt"></i>
+      </a>
+      &nbsp; &nbsp; &nbsp; &nbsp;
+      <a href="http://joonas-yoon.blogspot.kr/" class="icon-link">
+        <i class="fa fa-google"></i>
+      </a>
+    </p>
+  </div>
 </div>
 
-<script>
-$(function(){
-	document.getElementById("btn").addEventListener("click", function(e){
-		console.log(e);
-		document.getElementById("text").innerHTML = "Clicked!";
-	});
-});
-</script>
+<section>
+  <div class="container" style="padding-top: 50px; padding-bottom: 50px;">
+    
+    <h2>Algorithm blog</h2>
+    <p>C++</p>
+    <p><a href="http://joonas-yoon.blogspot.kr/">link</a></p>
+    
+    <hr/>
+    
+    <h2>Maze-Generator <small>1.4.1</small></h2>
+    <p>Windows7, C++/MFC</p>
+    <p><a href="https://goo.gl/nqDI0C">Download</a></p>
+    
+    <hr/>
+    
+    <h2>Card Memory Game <small>0.1.0</small></h2>
+    <p>HTML5, Javascript</p>
+    <p><a href="https://joonas-yoon.github.io/card-memory-game/">Play game</a></p>
+    
+  </div>
+</section>
+
+<div class="parallax-container" data-parallax="scroll" data-position="bottom" data-bleed="10" data-image-src="/img/pexels-photo.jpeg" data-natural-width="1920" data-natural-height="1280" style="height: 300px;"></div>
 
 <!-- Core Javascript -->
 <script src="/js/bootstrap.min.js"></script>
+<script src="/js/parallax.min.js"></script>
 </body>
 </html>
