@@ -2516,6 +2516,17 @@
 				padding: 0 0.65em 0 0;
 			}
 
+				ul.icons li.disable {
+					opacity: 0.5;
+					filter: alpha(opacity=75);
+				}
+
+					ul.icons li.disable > a[href] {
+						cursor: default;
+  						pointer-events: none;
+  						text-decoration: none;
+					}
+
 				ul.icons li:last-child {
 					padding-right: 0 !important;
 				}
