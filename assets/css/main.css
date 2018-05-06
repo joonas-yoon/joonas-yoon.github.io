@@ -3609,6 +3609,12 @@
 					margin: 0 2px;
 				}
 
+				#main .items > .item .tags > a {
+					font-size: 80%;
+					font-style: italic;
+					border: 0;
+				}
+
 		#main ul.alt li {
 			border-top-color: #dddddd;
 		}
