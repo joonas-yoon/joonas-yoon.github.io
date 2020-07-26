@@ -131,7 +131,7 @@
 
 		// Scrolly.
 			$('.scrolly').scrolly({
-				speed: 1000
+				speed: 750
 			});
 
 	});
