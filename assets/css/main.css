@@ -17,6 +17,19 @@ h1.heading {
     margin-bottom: 2.5rem;
 }
 
+.display-block {
+    display: block !important;
+}
+
+a.disabled {
+    text-decoration: none;
+    cursor: default;
+    color: rgba(0, 0, 0, .25);
+}
+    a:hover.disabled {
+        color: rgba(0, 0, 0, .25);
+    }
+
     @media (max-width: 576px) {
         section {
             font-size: 90%;
@@ -179,6 +192,31 @@ h1.heading {
         .timeline-event-icon {
             left: 0.75em;
         }
+    }
+
+/* Apps */
+
+.apps {
+    display: inline-block;
+    width: 128px;
+    height: 128px;
+    border: 0;
+    outline: 0;
+    padding: 0;
+    margin: 2em auto;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    background-color: #036;
+    transition: background-color 0.5s ease-out;
+}
+    .apps:hover {
+        background-color: #2a5d90;
+    }
+    .apps > img {
+        transition: transform 0.5s ease-out;
+    }
+    .apps:hover > img {
+        transform: scale(1.125);
     }
 
 /* Animation */
