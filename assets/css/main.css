@@ -261,7 +261,7 @@ a.disabled, a:hover.disabled {
 
     @media (max-width: 576px) {
         .timeline:before {
-            left: 0.775em;
+            left: 0.75em;
         }
         .timeline-event-copy {
             left: 1em;
@@ -269,42 +269,59 @@ a.disabled, a:hover.disabled {
         .timeline-event-icon {
             left: 0.75em;
         }
+        .timeline.right:before {
+            right: 1em;
+        }
+        .timeline.right .timeline-event-copy {
+            right: 1em;
+        }
+        .timeline.right .timeline-event-icon {
+            right: 0em;
+        }
     }
 
 /* Apps */
 
-.apps {
+#apps .app-wrapper {
+    margin-bottom: 2em;
+}
+
+.app {
     display: inline-block;
     width: 128px;
     height: 128px;
     border: 0;
     outline: 0;
     padding: 0;
-    margin: 0.5em auto;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: auto;
+    margin-right: auto;
     border-radius: 0.5rem;
     overflow: hidden;
     background-color: #036;
     transition: all 0.25s ease-in-out;
 }
-    .apps:hover {
+    .app:hover {
         background-color: #2a5d90;
         box-shadow: 0 0.5em 1em rgba(0, 0, 0, .2);
-        margin-top: 0.25em;
-        margin-bottom: 0.75em;
+        margin-top: 0.75em;
+        margin-bottom: 1.25em;
     }
-    .apps > img {
+    .app > img {
         width: 100%;
     }
 
-/* Teams */
-
-.team .details {
+.app-wrapper .details {
     display: block;
     text-align: center;
-    margin: 0 auto;
+    margin-top: -0.5rem;
+    margin-bottom: 0.5rem;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.team .details > p {
+.app-wrapper .details > p {
     margin-bottom: 5px;
 }
 
