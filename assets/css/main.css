@@ -24,14 +24,23 @@ h1.heading {
 a.disabled {
     text-decoration: none;
     cursor: default;
+}
+a.disabled, a:hover.disabled {
     color: rgba(0, 0, 0, .25);
 }
-    a:hover.disabled {
-        color: rgba(0, 0, 0, .25);
-    }
 
 .bg-dark a[href] {
     color: inherit;
+}
+.bg-dark a.disabled {
+    text-decoration: none;
+    cursor: default;
+}
+.bg-dark a.disabled, .bg-dark a:hover.disabled {
+    color: #5a6066;
+}
+.bg-dark .text-muted {
+    color: #949ba0 !important;
 }
 
     @media (max-width: 576px) {
