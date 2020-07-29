@@ -30,6 +30,10 @@ a.disabled {
         color: rgba(0, 0, 0, .25);
     }
 
+.bg-dark a[href] {
+    color: inherit;
+}
+
     @media (max-width: 576px) {
         section {
             font-size: 90%;
@@ -116,7 +120,7 @@ a.disabled {
 }
 
     .timeline:before {
-        background-color: #999999;
+        background-color: #cccccc;
         content: '';
         margin-left: -1px;
         position: absolute;
@@ -135,8 +139,7 @@ a.disabled {
         -ms-transform: rotate(-225deg);
         -webkit-transform: rotate(-225deg);
         transform: rotate(-225deg);
-        background-color: #a83279;
-        transition: transform 0.8s ease-in-out;
+        background-color: #d67786;
     }
 
     .timeline-event-copy {
@@ -146,6 +149,7 @@ a.disabled {
         left: 4em;
         width: 100%;
     }
+
     .timeline-event-copy h3 {
         font-size: 1.5em;
     }
@@ -170,7 +174,7 @@ a.disabled {
         -ms-transform: rotate(45deg);
         -webkit-transform: rotate(45deg);
         transform: rotate(45deg);
-        background-color: #999999;
+        background-color: #aaaaaa;
         outline: 10px solid #f8f9fa;
         display: block;
         margin: 0.5em 0.5em 0.5em -0.5em;
@@ -179,7 +183,38 @@ a.disabled {
         left: 2em;
         width: 1em;
         height: 1em;
-        transition: transform 0.5s ease-in-out;
+        transition: transform 0.5s ease-in-out, background-color 0.5s ease-in-out;
+    }
+
+    /* right align */
+
+    .timeline.right:before {
+        margin-left: auto;
+        margin-right: -1px;
+        left: auto;
+        right: 3em;
+    }
+
+        .dark .timeline:before {
+            background-color: #666666;
+        }
+    
+    .timeline.right .timeline-event-copy {
+        left: auto;
+        right: 4em;
+    }
+
+    .timeline.right .timeline-event-icon {
+        left: auto;
+        right: 2em;
+    }
+
+    .bg-dark .timeline-event-icon {
+        outline-color: #343a40;
+    }
+
+    .bg-dark .timeline-event:hover .timeline-event-icon {
+        background-color: #e8e45e;
     }
 
     @media (max-width: 576px) {
@@ -203,17 +238,22 @@ a.disabled {
     border: 0;
     outline: 0;
     padding: 0;
-    margin: 2em auto;
+    margin: 0.5em auto;
     border-radius: 0.5rem;
     overflow: hidden;
     background-color: #036;
-    transition: background-color 0.5s ease-out;
+    transition: all 0.5s ease-out;
 }
     .apps:hover {
         background-color: #2a5d90;
     }
     .apps > img {
+        width: 100%;
         transition: transform 0.5s ease-out;
+        -webkit-transition: -webkit-transform 0.5s ease-out;
+        -moz-transition: -moz-transform 0.5s ease-out;
+        -ms-transition: -ms-transform 0.5s ease-out;
+        -o-transition: -o-transform 0.5s ease-out;
     }
     .apps:hover > img {
         transform: scale(1.125);
