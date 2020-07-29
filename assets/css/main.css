@@ -284,21 +284,16 @@ a.disabled, a:hover.disabled {
     border-radius: 0.5rem;
     overflow: hidden;
     background-color: #036;
-    transition: all 0.5s ease-out;
+    transition: all 0.25s ease-in-out;
 }
     .apps:hover {
         background-color: #2a5d90;
+        box-shadow: 0 0.5em 1em rgba(0, 0, 0, .2);
+        margin-top: 0.25em;
+        margin-bottom: 0.75em;
     }
     .apps > img {
         width: 100%;
-        transition: transform 0.5s ease-out;
-        -webkit-transition: -webkit-transform 0.5s ease-out;
-        -moz-transition: -moz-transform 0.5s ease-out;
-        -ms-transition: -ms-transform 0.5s ease-out;
-        -o-transition: -o-transform 0.5s ease-out;
-    }
-    .apps:hover > img {
-        transform: scale(1.125);
     }
 
 /* Teams */
