@@ -86,6 +86,15 @@ a.disabled {
         }
     }
 
+/* Utils */
+
+.small-divider {
+    width: 64px;
+    height: 1px;
+    border-bottom: 2px solid #ccc;
+    margin: 0em auto 2em auto;
+}
+
 /* Icon */
 
 .icon {
@@ -258,6 +267,18 @@ a.disabled {
     .apps:hover > img {
         transform: scale(1.125);
     }
+
+/* Teams */
+
+.team .details {
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.team .details > p {
+    margin-bottom: 5px;
+}
 
 /* Animation */
 
