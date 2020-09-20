@@ -136,9 +136,9 @@
     
     // not support IE, safari yet.
     function unsupportedBroswer() {
-      ua = navigator.userAgent;
-      var is_ie = ua.indexOf("MSIE ") > -1 || ua.indexOf("Trident/") > -1;
-      var is_safari = ua.toLowerCase().indexOf('safari') > -1 && ua.indexOf('chrome') == -1;
+      var ua = navigator.userAgent.toLowerCase();
+      var is_ie = ua.indexOf('msie') > -1 || ua.indexOf('trident') > -1;
+      var is_safari = ua.indexOf('safari') > -1 && ua.indexOf('chrome') == -1;
       return is_ie || is_safari;
     }
       

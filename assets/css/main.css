@@ -84,6 +84,12 @@ a.disabled, a:hover.disabled {
         animation: custom-animation 2s;
         animation-iteration-count: infinite;
     }
+    
+    .main-cover .action > .scrolly {
+        color: inherit;
+        text-decoration: none;
+        margin-left: -2rem;
+    }
 
 	@media screen and (max-width: 768px) {
         .main-cover .heading-text {
@@ -339,6 +345,12 @@ a.disabled, a:hover.disabled {
 
 #video-anim video {
     display: block;
+}
+
+/* Fix for Safari */
+
+.row:before, .row:after {
+    display: inline-block !important;
 }
 
 /* Animation */
