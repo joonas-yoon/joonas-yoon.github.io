@@ -134,6 +134,13 @@
 				speed: 750
 			});
 
+		// video
+		var video = document.getElementById('intro_video');
+		video.autoplay = true;
+		video.muted = true;
+		video.controls = false;
+		video.load();
+		var vid = video.play();
 	});
 
 })(jQuery);
