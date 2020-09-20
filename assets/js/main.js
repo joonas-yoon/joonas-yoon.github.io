@@ -134,17 +134,21 @@
       speed: 750
     });
     
-    function isIE() {
+    // not support IE, safari yet.
+    function unsupportedBroswer() {
       ua = navigator.userAgent;
-      /* MSIE used to detect old browsers and Trident used to newer ones*/
       var is_ie = ua.indexOf("MSIE ") > -1 || ua.indexOf("Trident/") > -1;
-      return is_ie; 
+      var is_safari = ua.toLowerCase().indexOf('safari') > -1 && ua.indexOf('chrome') == -1;
+      return is_ie || is_safari;
     }
       
     // animation video
-    var video = document.getElementById('video-anim');
-    if(!isIE() && !!document.createElement('video').canPlayType) {
-      var video = video.querySelector('video');
+    var videobox = document.getElementById('video-anim');
+    var video = videobox.querySelector('video');
+    if(unsupportedBroswer() || !document.createElement('video').canPlayType) {
+      videobox.querySelector('img').style.display = 'block';
+      video.style.display = 'none';
+    } else {
       video.style.display = 'block';
       video.autoplay = true;
       video.muted = true;
@@ -159,13 +163,11 @@
         }).catch(function(error) {
           // Automatic playback failed.
           // Show a UI element to let the user manually start playback.
-          video.querySelector('img').style.display = 'block';
+          videobox.querySelector('img').style.display = 'block';
+          video.style.display = 'none';
           console.error(error);
         });
       }
-    }
-    else {
-      video.querySelector('img').style.display = 'block';
     }
 
   });

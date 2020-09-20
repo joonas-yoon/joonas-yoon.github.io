@@ -327,11 +327,18 @@ a.disabled, a:hover.disabled {
 
 #video-anim video,
 #video-anim img {
-    display: none;
     user-select: none;
     width: 100%;
     max-width: 360px;
     margin: 0 auto;
+}
+
+#video-anim img {
+    display: none;
+}
+
+#video-anim video {
+    display: block;
 }
 
 /* Animation */
