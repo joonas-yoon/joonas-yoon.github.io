@@ -350,7 +350,7 @@ a.disabled, a:hover.disabled {
 /* Fix for Safari */
 
 .row:before, .row:after {
-    display: inline-block !important;
+    display: none !important;
 }
 
 /* Animation */
