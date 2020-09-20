@@ -325,6 +325,15 @@ a.disabled, a:hover.disabled {
     margin-bottom: 5px;
 }
 
+#video-anim video,
+#video-anim img {
+    display: none;
+    user-select: none;
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto;
+}
+
 /* Animation */
 
 @-webkit-keyframes custom-animation {

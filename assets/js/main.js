@@ -133,14 +133,41 @@
 			$('.scrolly').scrolly({
 				speed: 750
 			});
+		
+		function isIE() {
+			ua = navigator.userAgent;
+			/* MSIE used to detect old browsers and Trident used to newer ones*/
+			var is_ie = ua.indexOf("MSIE ") > -1 || ua.indexOf("Trident/") > -1;
+			return is_ie; 
+		}
+			
+		// animation video
+		var video = document.getElementById('video-anim');
+		if(!isIE() && !!document.createElement('video').canPlayType) {
+			var video = video.querySelector('video');
+			video.style.display = 'block';
+			video.autoplay = true;
+			video.muted = true;
+			video.controls = false;
+			video.load();
+			var playPromise = video.play();
+			// In browsers that don’t yet support this functionality,
+			// playPromise won’t be defined.
+			if (playPromise !== undefined) {
+				playPromise.then(function() {
+					// Automatic playback started!
+				}).catch(function(error) {
+					// Automatic playback failed.
+					// Show a UI element to let the user manually start playback.
+					video.querySelector('img').style.display = 'block';
+					console.error(error);
+				});
+			}
+		}
+		else {
+			video.querySelector('img').style.display = 'block';
+		}
 
-		// video
-		var video = document.getElementById('intro_video');
-		video.autoplay = true;
-		video.muted = true;
-		video.controls = false;
-		video.load();
-		var vid = video.play();
 	});
 
 })(jQuery);

@@ -8,6 +8,7 @@
   <meta property="og:description" content="Hi, I'm joonas.">
   <meta property="og:image" content="images/thumbnail.png">
   <meta property="og:url" content="https://www.joonas.io">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -21,9 +22,12 @@
     <div class="p-3 w-100 h-100 mx-auto d-flex flex-column">
       <div class="mb-auto"></div>
       <div class="container">
-        <video style="user-select: none; width:100%; max-width: 360px;" id="intro_video" playsinline autoplay muted>
-          <source src="files/anim.webm" type="video/webm">
-        </video>
+        <div id="video-anim">
+          <video playsinline autoplay muted>
+            <source src="files/anim.webm" type="video/webm">
+          </video>
+          <img src="files/anim.gif" alt="Joona"/>
+        </div>
         <p class="short-text font-weight-light text-white-50">
           Hi there, I'm joonas.
         </p>
@@ -52,7 +56,7 @@
               <h3>Samsung Electonics Co,. Ltd.</h3>
               <h4>2019.07 ~ present</h4>
               <p>
-                <strong>Extended Reality, Graphic R&D, Mobile Division</strong>
+                <strong>Extended Reality, Graphic R&amp;D, Mobile Division</strong>
                 <br>
                 <i>Software Engineer, 2020.04 ~</i>
               </p>
