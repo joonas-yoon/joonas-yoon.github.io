@@ -1,6 +1,6 @@
 @import url('font-awesome.min.css');
 @import url('https://fonts.googleapis.com/earlyaccess/nanumgothic.css');
-@import url('https://fonts.googleapis.com/css2?family=Exo:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo:wght@900&family=Lato:wght@200&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400');
 
 /*
@@ -8,6 +8,10 @@
 	Author @joonas-yoon
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
+
+* {
+  font-family: 'Lato', sans-serif;
+}
 
 section {
     font-family: 'Nanum Barun Gothic', NanumBarunGothic, 'Nanum Gothic', MalgunGothic, sans-serif;
@@ -418,15 +422,11 @@ a.disabled, a:hover.disabled {
   margin-left: 6rem;
   animation-delay: -10s;
 }
-#top .title:nth-child(2) { animation-delay: -8s; }
-#top .title:nth-child(3) { animation-delay: -6s; }
-#top .title:nth-child(4) { animation-delay: -4s; }
-#top .title:nth-child(5) { animation-delay: -2s; }
-#top .title:nth-child(6) { animation-delay: 0s; }
-#top .title:nth-child(7) { animation-delay: 2s; }
-#top .title:nth-child(8) { animation-delay: 4s; }
-#top .title:nth-child(9) { animation-delay: 6s; }
-#top .title:nth-child(10) { animation-delay: 8s; }
+#top .title:nth-child(5n) { animation-delay: -8s; }
+#top .title:nth-child(5n+1) { animation-delay: -6s; }
+#top .title:nth-child(5n+2) { animation-delay: -4s; }
+#top .title:nth-child(5n+3) { animation-delay: -2s; }
+#top .title:nth-child(5n+4) { animation-delay: 0s; }
 
 @media (min-width: 1367px) and (max-width: 1600px) {
   #top .title { font-size: 20rem; line-height: 14rem; };
@@ -457,7 +457,7 @@ a.disabled, a:hover.disabled {
 /* scroll bar */
 
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 5px;
 }
 
 ::-webkit-scrollbar-track {
@@ -470,8 +470,7 @@ a.disabled, a:hover.disabled {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #7f7f7f;
-  cursor: grab;
+  background: #9f9f9f;
 }
 
 /* Cursor */
@@ -498,6 +497,48 @@ html {
   justify-content: center;
   transform: translate(-50%, -50%);
   transition: width 200ms ease-in, height 200ms ease-in;
+}
+
+/* Sidebar - socials */
+
+.socials {
+  position: fixed;
+  top: 0;
+  left: 5.6rem;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 99;
+  padding: 0;
+}
+
+.socials ul {
+  padding: 0;
+}
+
+.socials ul li {
+  list-style: none;
+  pointer-events: all;
+  padding: 0 0 15px;
+  margin: 0 0 15px;
+  border-bottom: #636363 1px solid;
+  position: relative;
+}
+
+.socials ul li:last-child {
+  border-bottom: none;
+}
+
+.socials ul li > .icon {
+  border: none;
+  border-radius: unset;
+  transition: all 200ms ease-in-out;
+}
+
+.socials ul li > .icon:hover {
+  background-color: transparent;
+  color: rgba(255, 255, 255, .9);
 }
 
 /* Animation */
