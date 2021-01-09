@@ -170,6 +170,25 @@
       }
     }
 
+    // cursor event
+    var cursor = document.getElementById('cursor');
+    var pressSize = 64, defaultSize = 32;
+    document.addEventListener('mousemove', onMouseMove);
+    document.addEventListener('mousedown', onMouseDown);
+    document.addEventListener('mouseup', onMouseUp);
+
+    function onMouseMove(e) {
+      cursor.style.top = e.pageY + 'px';
+      cursor.style.left = e.pageX + 'px';
+    }
+
+    function onMouseDown(e) {
+      cursor.style.width = cursor.style.height = pressSize + 'px';
+    }
+
+    function onMouseUp(e) {
+      cursor.style.width = cursor.style.height = defaultSize + 'px';
+    }
   });
 
 })(jQuery);
