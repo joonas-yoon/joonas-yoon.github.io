@@ -363,6 +363,12 @@ a.disabled, a:hover.disabled {
 #top {
   display: none;
   overflow: hidden;
+  position: fixed;
+  top:0;
+  height: 100vh;
+  z-index: 999;
+  background: rgba(0,0,0,.9);
+  width: 100%;
 }
 #top .subjects {
   margin: 0 -10rem 0 -3rem;
@@ -392,13 +398,15 @@ a.disabled, a:hover.disabled {
   height: 100%;
 }
 .overlay-show {
-  position: absolute;
+  position: fixed;
   top: 1.5rem;
   left: 2rem;
   fill: rgba(255, 255, 255, .75);
   width: 2rem;
   height: 2rem;
   cursor: pointer;
+  mix-blend-mode: difference;
+  z-index: 98;
 }
 .overlay-show:hover {
   fill: rgba(255, 255, 255, 1);
@@ -511,6 +519,7 @@ html {
   flex-direction: column;
   z-index: 99;
   padding: 0;
+  mix-blend-mode: difference;
 }
 
 .socials ul {
@@ -522,7 +531,7 @@ html {
   pointer-events: all;
   padding: 0 0 15px;
   margin: 0 0 15px;
-  border-bottom: #636363 1px solid;
+  border-bottom: rgba(255, 255, 255, .34) 1px solid;
   position: relative;
 }
 
