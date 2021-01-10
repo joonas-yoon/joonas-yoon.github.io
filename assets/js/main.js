@@ -174,21 +174,32 @@
     var cursor = document.getElementById('cursor');
     var pressSize = 64, defaultSize = 32;
     document.addEventListener('mousemove', onMouseMove);
-    document.addEventListener('mousedown', onMouseDown);
-    document.addEventListener('mouseup', onMouseUp);
+    document.addEventListener('mousedown', enlargeCursor);
+    document.addEventListener('mouseup', shrinkCursor);
 
     function onMouseMove(e) {
       cursor.style.top = e.pageY + 'px';
       cursor.style.left = e.pageX + 'px';
     }
 
-    function onMouseDown(e) {
+    function enlargeCursor(e) {
       cursor.style.width = cursor.style.height = pressSize + 'px';
     }
 
-    function onMouseUp(e) {
+    function shrinkCursor(e) {
       cursor.style.width = cursor.style.height = defaultSize + 'px';
     }
+
+    $("a").each(function(i, e) {
+      $(e).on('mouseover', function(){
+        enlargeCursor();
+        cursor.style.background = '#fbf074';
+      });
+      $(e).on('mouseout', function(){
+        shrinkCursor();
+        cursor.style.background = 'white';
+      });
+    });
   });
 
 })(jQuery);

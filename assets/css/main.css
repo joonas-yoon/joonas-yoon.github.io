@@ -141,7 +141,6 @@ a.disabled, a:hover.disabled {
     }
 
     .icons > a[href] {
-        cursor: pointer;
         text-decoration: none;
     }
     .icon.alt {
@@ -386,7 +385,6 @@ a.disabled, a:hover.disabled {
   height: 4rem;
   transform: rotate(0deg);
   transition: transform 200ms ease-in;
-  cursor: pointer;
   z-index: 99999;
 }
 .overlay-close:hover {
@@ -404,7 +402,6 @@ a.disabled, a:hover.disabled {
   fill: rgba(255, 255, 255, .75);
   width: 2rem;
   height: 2rem;
-  cursor: pointer;
   mix-blend-mode: difference;
   z-index: 98;
 }
@@ -417,7 +414,6 @@ a.disabled, a:hover.disabled {
   line-height: 15rem;
   font-family: 'Exo', sans-serif;
   text-decoration: none;
-  cursor: pointer;
   transition: color 200ms ease-in-out;
   text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
   animation: text-gradient-animation 10s infinite;
@@ -486,6 +482,12 @@ a.disabled, a:hover.disabled {
 html {
   cursor: none;
   overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+a.href:hover {
+  cursor: none;
+  pointer-events: all;
 }
 
 #cursor {
@@ -504,7 +506,7 @@ html {
   text-align: center;
   justify-content: center;
   transform: translate(-50%, -50%);
-  transition: width 200ms ease-in, height 200ms ease-in;
+  transition: width 200ms ease-in, height 200ms ease-in, background 200ms ease-in-out;
 }
 
 /* Sidebar - socials */
