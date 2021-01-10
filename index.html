@@ -18,7 +18,18 @@
 </head>
 <body>
   <div id="cursor"></div>
-  <div class="socials">
+  <div class="sidebar navigator">
+    <ul>
+      <li><a href="#home"></a></li>
+      <li><a href="#career"></a></li>
+      <li><a href="#awards"></a></li>
+      <li><a href="#activities"></a></li>
+      <li><a href="#apps"></a></li>
+      <li><a href="#teams"></a></li>
+      <li><a href="#footer"></a></li>
+    </ul>
+  </div>
+  <div class="sidebar socials">
     <ul>
       <li>
         <a href="https://www.linkedin.com/in/joona-yoon/" class="icon fa-linkedin alt" target="_blank"><span class="label">LinkedIn</span></a>
@@ -39,16 +50,17 @@
       <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"><path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"></path></svg>
     </a>
     <p class="subjects">
-      <a class="title">About</a>
-      <a class="title">Career</a>
-      <a class="title">Award</a>
-      <a class="title">Skill</a>
-      <a class="title">Toys</a>
-      <a class="title">Design</a>
-      <a class="title">About</a><a class="title">Career</a><a class="title">Award</a><a class="title">Skill</a><a class="title">Toys</a><a class="title">Design</a><a class="title">About</a><a class="title">Career</a><a class="title">Award</a><a class="title">Skill</a><a class="title">Toys</a><a class="title">Design</a><a class="title">About</a><a class="title">Career</a><a class="title">Award</a><a class="title">Skill</a><a class="title">Toys</a><a class="title">Design</a>
+      <a href="#about" class="title">About</a>
+      <a href="#career" class="title">Career</a>
+      <a href="#awards" class="title">Award</a>
+      <a href="#skill" class="title">Skill</a>
+      <a href="#toys" class="title">Toys</a>
+      <a href="#design" class="title">Design</a>
+      <!-- dummy for fill -->
+      <a href="#about" class="title">About</a><a href="#career" class="title">Career</a><a href="#awards" class="title">Award</a><a href="#skill" class="title">Skill</a><a href="#toys" class="title">Toys</a><a href="#design" class="title">Design</a><a href="#about" class="title">About</a><a href="#career" class="title">Career</a><a href="#awards" class="title">Award</a><a href="#skill" class="title">Skill</a><a href="#toys" class="title">Toys</a><a href="#design" class="title">Design</a><a href="#about" class="title">About</a><a href="#career" class="title">Career</a><a href="#awards" class="title">Award</a><a href="#skill" class="title">Skill</a><a href="#toys" class="title">Toys</a><a href="#design" class="title">Design</a>
     </p>
   </div>
-  <div role="cover" class="position-absoulte overflow-hidden text-center w-100 h-100 main-cover">
+  <div role="cover" id="home" class="position-absoulte overflow-hidden text-center w-100 h-100 main-cover">
     <a class="overlay-button overlay-show">
       <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"><path d="M2 13.5h14V12H2v1.5zm0-4h14V8H2v1.5zM2 4v1.5h14V4H2z"/></svg>
     </a>
@@ -67,9 +79,6 @@
         </p>
       </div>
       <div class="mt-auto">
-      </div>
-      <div class="action">
-        <a href="#career" class="scrolly icon fa-angle-double-down"><span class="label">Click to scroll</span></a>
       </div>
     </div>
   </div>
@@ -306,7 +315,7 @@
       </div>
     </section>
 
-    <footer class="position-relative py-5 bg-dark text-white">
+    <footer id="footer" class="position-relative py-5 bg-dark text-white">
       <div class="container">
         <div class="row">
           <div class="col-12 col-md">
@@ -350,16 +359,5 @@
   <script src="assets/js/util.js"></script>
   <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
   <script src="assets/js/main.js"></script>
-
-  <script type="text/javascript">
-    window.addEventListener('load', function(evt){
-      $(".overlay-close").on('click', function(e){
-        $("#top").fadeOut();
-      });
-      $(".overlay-show").on('click', function(e){
-        $("#top").fadeIn();
-      });
-    });
-  </script>
 </body>
 </html>

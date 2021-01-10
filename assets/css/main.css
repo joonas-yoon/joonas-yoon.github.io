@@ -28,7 +28,6 @@ h1.heading {
 
 a.disabled {
     text-decoration: none;
-    cursor: default;
 }
 a.disabled, a:hover.disabled {
     color: rgba(0, 0, 0, .25);
@@ -39,7 +38,6 @@ a.disabled, a:hover.disabled {
 }
 .bg-dark a.disabled {
     text-decoration: none;
-    cursor: default;
 }
 .bg-dark a.disabled, .bg-dark a:hover.disabled {
     color: #5a6066;
@@ -485,15 +483,15 @@ html {
   scroll-behavior: smooth;
 }
 
-a.href:hover {
+a[href] {
   cursor: none;
   pointer-events: all;
 }
 
 #cursor {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 2.5rem;
+  left: 3rem;
   width: 32px;
   height: 32px;
   border-radius: 50%;
@@ -509,26 +507,25 @@ a.href:hover {
   transition: width 200ms ease-in, height 200ms ease-in, background 200ms ease-in-out;
 }
 
-/* Sidebar - socials */
+/* Sidebar */
 
-.socials {
+.sidebar {
   position: fixed;
   top: 0;
-  left: 5.6rem;
   height: 100vh;
   display: flex;
   justify-content: center;
   flex-direction: column;
-  z-index: 99;
+  z-index: 97;
   padding: 0;
   mix-blend-mode: difference;
 }
 
-.socials ul {
+.sidebar ul {
   padding: 0;
 }
 
-.socials ul li {
+.sidebar ul li {
   list-style: none;
   pointer-events: all;
   padding: 0 0 15px;
@@ -537,79 +534,103 @@ a.href:hover {
   position: relative;
 }
 
-.socials ul li:last-child {
+.sidebar ul li:last-child {
   border-bottom: none;
 }
 
-.socials ul li > .icon {
+.sidebar ul li > .icon {
   border: none;
   border-radius: unset;
   transition: all 200ms ease-in-out;
 }
 
-.socials ul li > .icon:hover {
+.sidebar ul li > .icon:hover {
   background-color: transparent;
   color: rgba(255, 255, 255, .9);
+}
+
+.sidebar.socials {
+  left: 5.6rem;
+}
+
+.sidebar.navigator {
+  left: 2.65rem;
+}
+.sidebar.navigator ul li {
+  border: none;
+}
+.sidebar.navigator a {
+  display: block;
+  width: 10px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, .25);
+  border-radius: 50%;
+}
+.sidebar.navigator a.active {
+  width: 18px;
+  height: 18px;
+  margin-left: -4px;
+  background-color: white;
 }
 
 /* Animation */
 
 @-webkit-keyframes custom-animation {
-    0%   { opacity: 0.5; transform: translateY(0%); }
-    50%  { opacity: 1.0; transform: translateY(-15%); }
-    100% { opacity: 0.5; transform: translateY(0%); }
+  0%   { opacity: 0.5; transform: translateY(0%); }
+  50%  { opacity: 1.0; transform: translateY(-15%); }
+  100% { opacity: 0.5; transform: translateY(0%); }
 }
 
 @-moz-keyframes custom-animation {
-    0%   { opacity: 0.5; transform: translateY(0%); }
-    50%  { opacity: 1.0; transform: translateY(-15%); }
-    100% { opacity: 0.5; transform: translateY(0%); }
+  0%   { opacity: 0.5; transform: translateY(0%); }
+  50%  { opacity: 1.0; transform: translateY(-15%); }
+  100% { opacity: 0.5; transform: translateY(0%); }
 }
 
 @-o-keyframes custom-animation {
-    0%   { opacity: 0.5; transform: translateY(0%); }
-    50%  { opacity: 1.0; transform: translateY(-15%); }
-    100% { opacity: 0.5; transform: translateY(0%); }
+  0%   { opacity: 0.5; transform: translateY(0%); }
+  50%  { opacity: 1.0; transform: translateY(-15%); }
+  100% { opacity: 0.5; transform: translateY(0%); }
 }
 
 @keyframes custom-animation {
-    0%   { opacity: 0.5; transform: translateY(0%); }
-    50%  { opacity: 1.0; transform: translateY(-15%); }
-    100% { opacity: 0.5; transform: translateY(0%); }
+  0%   { opacity: 0.5; transform: translateY(0%); }
+  50%  { opacity: 1.0; transform: translateY(-15%); }
+  100% { opacity: 0.5; transform: translateY(0%); }
 }
 
 @-webkit-keyframes text-gradient-animation {
-    0%   { text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff; }
-    20%   { text-shadow: -1px -1px 0 #f54444, 1px -1px 0 #f54444, -1px 1px 0 #f54444, 1px 1px 0 #f54444; }
-    40%   { text-shadow: -1px -1px 0 #d3de24, 1px -1px 0 #d3de24, -1px 1px 0 #d3de24, 1px 1px 0 #d3de24; }
-    60%   { text-shadow: -1px -1px 0 #24de77, 1px -1px 0 #24de77, -1px 1px 0 #24de77, 1px 1px 0 #24de77; }
-    80%   { text-shadow: -1px -1px 0 #2499de, 1px -1px 0 #2499de, -1px 1px 0 #2499de, 1px 1px 0 #2499de; }
-    100%   { text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff; }
+  0%   { text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff; }
+  20%   { text-shadow: -1px -1px 0 #f54444, 1px -1px 0 #f54444, -1px 1px 0 #f54444, 1px 1px 0 #f54444; }
+  40%   { text-shadow: -1px -1px 0 #d3de24, 1px -1px 0 #d3de24, -1px 1px 0 #d3de24, 1px 1px 0 #d3de24; }
+  60%   { text-shadow: -1px -1px 0 #24de77, 1px -1px 0 #24de77, -1px 1px 0 #24de77, 1px 1px 0 #24de77; }
+  80%   { text-shadow: -1px -1px 0 #2499de, 1px -1px 0 #2499de, -1px 1px 0 #2499de, 1px 1px 0 #2499de; }
+  100%   { text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff; }
 }
 
 @-moz-keyframes text-gradient-animation {
-    0%   { text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff; }
-    20%   { text-shadow: -1px -1px 0 #f54444, 1px -1px 0 #f54444, -1px 1px 0 #f54444, 1px 1px 0 #f54444; }
-    40%   { text-shadow: -1px -1px 0 #d3de24, 1px -1px 0 #d3de24, -1px 1px 0 #d3de24, 1px 1px 0 #d3de24; }
-    60%   { text-shadow: -1px -1px 0 #24de77, 1px -1px 0 #24de77, -1px 1px 0 #24de77, 1px 1px 0 #24de77; }
-    80%   { text-shadow: -1px -1px 0 #2499de, 1px -1px 0 #2499de, -1px 1px 0 #2499de, 1px 1px 0 #2499de; }
-    100%   { text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff; }
+  0%   { text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff; }
+  20%   { text-shadow: -1px -1px 0 #f54444, 1px -1px 0 #f54444, -1px 1px 0 #f54444, 1px 1px 0 #f54444; }
+  40%   { text-shadow: -1px -1px 0 #d3de24, 1px -1px 0 #d3de24, -1px 1px 0 #d3de24, 1px 1px 0 #d3de24; }
+  60%   { text-shadow: -1px -1px 0 #24de77, 1px -1px 0 #24de77, -1px 1px 0 #24de77, 1px 1px 0 #24de77; }
+  80%   { text-shadow: -1px -1px 0 #2499de, 1px -1px 0 #2499de, -1px 1px 0 #2499de, 1px 1px 0 #2499de; }
+  100%   { text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff; }
 }
 
 @-o-keyframes text-gradient-animation {
-    0%   { text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff; }
-    20%   { text-shadow: -1px -1px 0 #f54444, 1px -1px 0 #f54444, -1px 1px 0 #f54444, 1px 1px 0 #f54444; }
-    40%   { text-shadow: -1px -1px 0 #d3de24, 1px -1px 0 #d3de24, -1px 1px 0 #d3de24, 1px 1px 0 #d3de24; }
-    60%   { text-shadow: -1px -1px 0 #24de77, 1px -1px 0 #24de77, -1px 1px 0 #24de77, 1px 1px 0 #24de77; }
-    80%   { text-shadow: -1px -1px 0 #2499de, 1px -1px 0 #2499de, -1px 1px 0 #2499de, 1px 1px 0 #2499de; }
-    100%   { text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff; }
+  0%   { text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff; }
+  20%   { text-shadow: -1px -1px 0 #f54444, 1px -1px 0 #f54444, -1px 1px 0 #f54444, 1px 1px 0 #f54444; }
+  40%   { text-shadow: -1px -1px 0 #d3de24, 1px -1px 0 #d3de24, -1px 1px 0 #d3de24, 1px 1px 0 #d3de24; }
+  60%   { text-shadow: -1px -1px 0 #24de77, 1px -1px 0 #24de77, -1px 1px 0 #24de77, 1px 1px 0 #24de77; }
+  80%   { text-shadow: -1px -1px 0 #2499de, 1px -1px 0 #2499de, -1px 1px 0 #2499de, 1px 1px 0 #2499de; }
+  100%   { text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff; }
 }
 
 @keyframes text-gradient-animation {
-    0%   { text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff; }
-    20%   { text-shadow: -1px -1px 0 #f54444, 1px -1px 0 #f54444, -1px 1px 0 #f54444, 1px 1px 0 #f54444; }
-    40%   { text-shadow: -1px -1px 0 #d3de24, 1px -1px 0 #d3de24, -1px 1px 0 #d3de24, 1px 1px 0 #d3de24; }
-    60%   { text-shadow: -1px -1px 0 #24de77, 1px -1px 0 #24de77, -1px 1px 0 #24de77, 1px 1px 0 #24de77; }
-    80%   { text-shadow: -1px -1px 0 #2499de, 1px -1px 0 #2499de, -1px 1px 0 #2499de, 1px 1px 0 #2499de; }
-    100%   { text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff; }
+  0%   { text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff; }
+  20%   { text-shadow: -1px -1px 0 #f54444, 1px -1px 0 #f54444, -1px 1px 0 #f54444, 1px 1px 0 #f54444; }
+  40%   { text-shadow: -1px -1px 0 #d3de24, 1px -1px 0 #d3de24, -1px 1px 0 #d3de24, 1px 1px 0 #d3de24; }
+  60%   { text-shadow: -1px -1px 0 #24de77, 1px -1px 0 #24de77, -1px 1px 0 #24de77, 1px 1px 0 #24de77; }
+  80%   { text-shadow: -1px -1px 0 #2499de, 1px -1px 0 #2499de, -1px 1px 0 #2499de, 1px 1px 0 #2499de; }
+  100%   { text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff; }
 }

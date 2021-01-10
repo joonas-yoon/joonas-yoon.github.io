@@ -200,6 +200,32 @@
         cursor.style.background = 'white';
       });
     });
+
+    // menu
+    $("#top a[href]").on('click', function() {
+      $("#top").fadeOut();
+    });
+    $(".overlay-close").on('click', function(e){
+      $("#top").fadeOut();
+    });
+    $(".overlay-show").on('click', function(e){
+      $("#top").fadeIn();
+    });
+
+    // scrollspy activation
+    $(window).on('scroll', function(){
+      let selected = false;
+      $(".sidebar.navigator").find("a[href]").each((i, e) => {
+        let element = document.getElementById(e.href.split('#')[1]);
+        let rect = element.getBoundingClientRect();
+        if (!selected && 0 <= rect.y && rect.y < window.innerHeight) {
+          e.setAttribute('class', 'active');
+          selected = true;
+        } else {
+          e.removeAttribute('class');
+        }
+      });
+    });
   });
 
 })(jQuery);
