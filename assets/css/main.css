@@ -109,7 +109,7 @@ a.disabled, a:hover.disabled {
 
 	@media screen and (max-width: 768px) {
         .main-cover {
-            z-index: 97;
+            z-index: 95;
         }
 
         .main-cover .heading-text {
@@ -410,7 +410,7 @@ a.disabled, a:hover.disabled {
   height: 4rem;
   transform: rotate(0deg);
   transition: transform 200ms ease-in;
-  z-index: 99999;
+  z-index: 1000;
 }
 .overlay-close:hover {
   fill: rgba(255, 255, 255, 1);
@@ -523,7 +523,7 @@ a[href] {
 }
 
 #cursor {
-  display: none;
+  display: block;
   position: absolute;
   top: -5rem;
   left: -5rem;
@@ -542,9 +542,9 @@ a[href] {
   transition: width 200ms ease-in, height 200ms ease-in, background 200ms ease-in-out;
 }
 
-@media screen {
+@media (max-width: 576px) {
   #cursor {
-    display: block;
+    display: none;
   }
 }
 
@@ -557,7 +557,7 @@ a[href] {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  z-index: 95;
+  z-index: 90;
   padding: 0;
   mix-blend-mode: difference;
   transition: all 200ms ease-in-out;
@@ -649,7 +649,7 @@ a[href] {
     padding-left: 4rem;
     padding-right: 1.5rem;
     text-align: right;
-    z-index: 98;
+    z-index: 96;
   }
   .sidebar.socials ul li {
     display: inline-block;
