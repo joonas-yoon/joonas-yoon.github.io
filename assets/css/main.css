@@ -335,6 +335,67 @@ a.disabled, a:hover.disabled {
         }
     }
 
+/* Card */
+
+.cards {
+  display: block;
+  margin-bottom: 80px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+  .cards .item {
+    display: inline-block;
+    margin-right: 40px;
+  }
+
+  .cards .item:last-child {
+    margin-right: 0;
+  }
+
+    .cards .item > .img {
+      margin: 0 auto;
+      border-radius: 50%;
+      width: 80px;
+      height: 80px;
+      background-image: url(../../images/icons.png);
+      background-size: 400px;
+      background-position: center center;
+      background-color: #222;
+      transition: all 1000ms ease;
+    }
+
+    .cards .item:hover > .img {
+      transform: rotateZ(360deg);
+    }
+
+    .cards .item > .img.html5 { background-position: 0px 0px; }
+    .cards .item > .img.css3 { background-position: -80px 0; }
+    .cards .item > .img.js { background-position: -160px 0; }
+    .cards .item > .img.es6 { background-position: -240px 0; }
+    .cards .item > .img.bootstrap { background-position: -320px 0; }
+    .cards .item > .img.babel { background-position: 0px -80px; }
+    .cards .item > .img.docker { background-position: -80px -80px; }
+    .cards .item > .img.nodejs { background-position: -160px -80px; }
+    .cards .item > .img.django { background-position: -240px -80px; }
+    .cards .item > .img.chrome { background-position: -320px -80px; }
+    .cards .item > .img.git { background-position: 0px -160px; background-color: transparent; }
+
+    .cards .item > .title {
+      position: relative;
+      margin-top: 0.5rem;
+    }
+
+    .cards .item > .title > p {
+      position: absolute;
+      width: 100%;
+      top: 0;
+      text-align: center;
+      white-space: pre-line;
+      word-break: initial;
+    }
+
 /* Apps */
 
 #apps .app-wrapper {
