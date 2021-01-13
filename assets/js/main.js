@@ -176,8 +176,13 @@
     document.addEventListener('mousemove', onMouseMove);
     document.addEventListener('mousedown', enlargeCursor);
     document.addEventListener('mouseup', shrinkCursor);
+    document.addEventListener('touchstart', hideCursor, false);
+    document.addEventListener('touchend', hideCursor, false);
+    document.addEventListener('touchmove', hideCursor, false);
+    document.addEventListener('touchcancel', hideCursor, false);
 
     function onMouseMove(e) {
+      cursor.style.display = 'block';
       cursor.style.top = e.pageY + 'px';
       cursor.style.left = e.pageX + 'px';
     }
@@ -188,6 +193,10 @@
 
     function shrinkCursor(e) {
       cursor.style.width = cursor.style.height = defaultSize + 'px';
+    }
+
+    function hideCursor(e) {
+      cursor.style.display = 'none';
     }
 
     $("a").each(function(i, e) {
@@ -215,7 +224,7 @@
     // scrollspy activation
     $(window).on('scroll', function(){
       let selected = false;
-      $(".sidebar.navigator").find("a[href]").each((i, e) => {
+      $(".sidebar.navigator").find("a").each(function(i, e) {
         let element = document.getElementById(e.href.split('#')[1]);
         let rect = element.getBoundingClientRect();
         if (!selected && 0 <= rect.y && rect.y < window.innerHeight) {
