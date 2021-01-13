@@ -235,6 +235,23 @@
         }
       });
     });
+
+    // modal
+    var modal = $("#modal");
+
+    $("a[modal-href]").each(function(i, el){
+      el.addEventListener('click', function(evt){
+        evt.preventDefault();
+        evt.stopPropagation();
+        modal.fadeIn();
+      });
+    });
+    $(".modal-bg").on('click', function(e){
+      modal.fadeOut();
+    });
+    $(".modal-close-button").on('click', function(e){
+      modal.fadeOut();
+    });
   });
 
 })(jQuery);
