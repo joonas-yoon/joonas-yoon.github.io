@@ -440,11 +440,11 @@ a.disabled, a:hover.disabled {
     margin-right: auto;
     border-radius: 0.5rem;
     overflow: hidden;
-    background-color: #036;
+    background-color: rgb(134, 134, 134, 0.05);
     transition: all 0.25s ease-in-out;
 }
     .app:hover {
-        background-color: #2a5d90;
+        background-color: rgb(134, 134, 134, 0.2);
         box-shadow: 0 0.5em 1em rgba(0, 0, 0, .2);
         margin-top: 0.75em;
         margin-bottom: 1.25em;
