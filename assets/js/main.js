@@ -4,28 +4,26 @@
   Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
-(function($) {
-
+(function ($) {
   skel.breakpoints({
     xlarge: '(max-width: 1680px)',
     large: '(max-width: 1280px)',
     medium: '(max-width: 980px)',
     small: '(max-width: 736px)',
     xsmall: '(max-width: 480px)',
-    xxsmall: '(max-width: 360px)'
+    xxsmall: '(max-width: 360px)',
   });
 
-  $(function() {
-
-    var	$window = $(window),
-      $body = $('body'),
-      $main = $('#main');
+  $(function () {
+    const $window = $(window);
+    const $body = $('body');
+    const $main = $('#main');
 
     // Disable animations/transitions until the page has loaded.
     $body.addClass('is-loading');
 
-    $window.on('load', function() {
-      window.setTimeout(function() {
+    $window.on('load', function () {
+      window.setTimeout(function () {
         $body.removeClass('is-loading');
       }, 100);
     });
@@ -34,7 +32,7 @@
     $('form').placeholder();
 
     // Prioritize "important" elements on medium.
-    skel.on('+medium -medium', function() {
+    skel.on('+medium -medium', function () {
       $.prioritize(
         '.important\\28 medium\\29',
         skel.breakpoint('medium').active
@@ -42,110 +40,93 @@
     });
 
     // Nav.
-    var $nav = $('#nav');
+    const $nav = $('#nav');
 
     if ($nav.length > 0) {
-
       // Shrink effect.
-      $main
-        .scrollex({
-          mode: 'top',
-          enter: function() {
-            $nav.addClass('alt');
-          },
-          leave: function() {
-            $nav.removeClass('alt');
-          },
-        });
+      $main.scrollex({
+        mode: 'top',
+        enter: function () {
+          $nav.addClass('alt');
+        },
+        leave: function () {
+          $nav.removeClass('alt');
+        },
+      });
 
       // Links.
-      var $nav_a = $nav.find('a');
+      const $navA = $nav.find('a');
 
-      $nav_a
+      $navA
         .scrolly({
           speed: 1000,
-          offset: function() { return $nav.height(); }
+          offset: function () {
+            return $nav.height();
+          },
         })
-        .on('click', function() {
-
-          var $this = $(this);
+        .on('click', function () {
+          const $this = $(this);
 
           // External link? Bail.
-          if ($this.attr('href').charAt(0) != '#')
-            return;
+          if ($this.attr('href').charAt(0) != '#') return;
 
           // Deactivate all links.
-          $nav_a
-            .removeClass('active')
-            .removeClass('active-locked');
+          $navA.removeClass('active').removeClass('active-locked');
 
           // Activate link *and* lock it (so Scrollex doesn't try to activate other links as we're scrolling to this one's section).
-          $this
-            .addClass('active')
-            .addClass('active-locked');
-
+          $this.addClass('active').addClass('active-locked');
         })
-        .each(function() {
-
-          var	$this = $(this),
-            id = $this.attr('href'),
-            $section = $(id);
+        .each(function () {
+          const $this = $(this);
+          const id = $this.attr('href');
+          const $section = $(id);
 
           // No section for this link? Bail.
-          if ($section.length < 1)
-            return;
+          if ($section.length < 1) return;
 
           // Scrollex.
           $section.scrollex({
             mode: 'middle',
-            initialize: function() {
-
+            initialize: function () {
               // Deactivate section.
-              if (skel.canUse('transition'))
-                $section.addClass('inactive');
-
+              if (skel.canUse('transition')) $section.addClass('inactive');
             },
-            enter: function() {
-
+            enter: function () {
               // Activate section.
               $section.removeClass('inactive');
 
               // No locked links? Deactivate all links and activate this section's one.
-              if ($nav_a.filter('.active-locked').length == 0) {
-
-                $nav_a.removeClass('active');
+              if ($navA.filter('.active-locked').length == 0) {
+                $navA.removeClass('active');
                 $this.addClass('active');
-
               }
 
               // Otherwise, if this section's link is the one that's locked, unlock it.
               else if ($this.hasClass('active-locked'))
                 $this.removeClass('active-locked');
-
-            }
+            },
           });
-
         });
-
     }
 
     // Scrolly.
     $('.scrolly').scrolly({
-      speed: 750
+      speed: 750,
     });
-    
+
     // not support IE, safari yet.
     function unsupportedBroswer() {
-      var ua = navigator.userAgent;
-      var is_ie = ua.indexOf('MSIE') !== -1 || ua.indexOf('Trident') !== -1;
-      var is_safari = !!ua.match(/Version\/[\d\.]+.*Safari/) || ua.indexOf('Mac') !== -1;
-      return is_ie || is_safari;
+      const ua = navigator.userAgent;
+      const isIE = ua.indexOf('MSIE') !== -1 || ua.indexOf('Trident') !== -1;
+      const isSafari =
+        !!ua.match(/Version\/[\d\.]+.*Safari/) || ua.indexOf('Mac') !== -1;
+      return isIE || isSafari;
     }
-      
+
     // animation video
-    var videobox = document.getElementById('video-anim');
-    var video = videobox.querySelector('video');
-    if(unsupportedBroswer() || !document.createElement('video').canPlayType) {
+    const videobox = document.getElementById('video-anim');
+    const video = videobox.querySelector('video');
+    if (unsupportedBroswer() || !document.createElement('video').canPlayType) {
       videobox.querySelector('img').style.display = 'block';
       video.style.display = 'none';
     } else {
@@ -154,25 +135,28 @@
       video.muted = true;
       video.controls = false;
       video.load();
-      var playPromise = video.play();
+      const playPromise = video.play();
       // In browsers that don’t yet support this functionality,
       // playPromise won’t be defined.
       if (playPromise !== undefined) {
-        playPromise.then(function() {
-          // Automatic playback started!
-        }).catch(function(error) {
-          // Automatic playback failed.
-          // Show a UI element to let the user manually start playback.
-          videobox.querySelector('img').style.display = 'block';
-          video.style.display = 'none';
-          console.error(error);
-        });
+        playPromise
+          .then(function () {
+            // Automatic playback started!
+          })
+          .catch(function (error) {
+            // Automatic playback failed.
+            // Show a UI element to let the user manually start playback.
+            videobox.querySelector('img').style.display = 'block';
+            video.style.display = 'none';
+            console.error(error);
+          });
       }
     }
 
     // cursor event
-    var cursor = document.getElementById('cursor');
-    var pressSize = 64, defaultSize = 32;
+    const cursor = document.getElementById('cursor');
+    const pressSize = 64;
+    const defaultSize = 32;
     document.addEventListener('mousemove', onMouseMove);
     document.addEventListener('mousedown', enlargeCursor);
     document.addEventListener('mouseup', shrinkCursor);
@@ -199,48 +183,50 @@
       cursor.style.display = 'none';
     }
 
-    $("a").each(function(i, e) {
-      $(e).on('mouseover', function(){
+    $('a').each(function (i, e) {
+      $(e).on('mouseover', function () {
         enlargeCursor();
         cursor.style.background = '#fbf074';
       });
-      $(e).on('mouseout', function(){
+      $(e).on('mouseout', function () {
         shrinkCursor();
         cursor.style.background = 'white';
       });
     });
 
     // menu
-    $("#top a[href]").on('click', function() {
-      $("#top").fadeOut();
+    $('#top a[href]').on('click', function () {
+      $('#top').fadeOut();
     });
-    $(".overlay-close").on('click', function(e){
-      $("#top").fadeOut();
+    $('.overlay-close').on('click', function (e) {
+      $('#top').fadeOut();
     });
-    $(".overlay-show").on('click', function(e){
-      $("#top").fadeIn();
+    $('.overlay-show').on('click', function (e) {
+      $('#top').fadeIn();
     });
 
     // scrollspy activation
-    $(window).on('scroll', function(){
+    $(window).on('scroll', function () {
       let selected = false;
-      $(".sidebar.navigator").find("a").each(function(i, e) {
-        let element = document.getElementById(e.href.split('#')[1]);
-        let rect = element.getBoundingClientRect();
-        if (!selected && 0 <= rect.y && rect.y < window.innerHeight) {
-          e.setAttribute('class', 'active');
-          selected = true;
-        } else {
-          e.removeAttribute('class');
-        }
-      });
+      $('.sidebar.navigator')
+        .find('a')
+        .each(function (i, e) {
+          const element = document.getElementById(e.href.split('#')[1]);
+          const rect = element.getBoundingClientRect();
+          if (!selected && 0 <= rect.y && rect.y < window.innerHeight) {
+            e.setAttribute('class', 'active');
+            selected = true;
+          } else {
+            e.removeAttribute('class');
+          }
+        });
     });
 
     // modal
-    var $modal = $("#modal");
+    const $modal = $('#modal');
 
-    $("a[modal-href]").each(function(i, el){
-      el.addEventListener('click', function(evt){
+    $('a[modal-href]').each(function (i, el) {
+      el.addEventListener('click', function (evt) {
         evt.preventDefault();
         evt.stopPropagation();
 
@@ -253,25 +239,26 @@
         $.ajax({
           url: 'pages/' + url,
           dataType: 'html',
-          success: function(html){
+          success: function (html) {
             $content.html(html);
           },
-          error: function(request, status, error) {
-            let text = request.responseText || "Page Not Found";
-            $content.html(`<h1>${request.status} ${request.statusText}</h1><p style="color:#ff4545;">${text}</p>`);
+          error: function (request, status, error) {
+            const text = request.responseText || 'Page Not Found';
+            $content.html(
+              `<h1>${request.status} ${request.statusText}</h1><p style="color:#ff4545;">${text}</p>`
+            );
           },
-          complete: function() {
+          complete: function () {
             $spinner.hide();
-          }
-        })
+          },
+        });
       });
     });
-    $(".modal-bg").on('click', function(e){
+    $('.modal-bg').on('click', function (e) {
       $modal.fadeOut();
     });
-    $(".modal-close-button").on('click', function(e){
+    $('.modal-close-button').on('click', function (e) {
       $modal.fadeOut();
     });
   });
-
 })(jQuery);
