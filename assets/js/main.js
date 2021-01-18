@@ -243,13 +243,25 @@
       el.addEventListener('click', function(evt){
         evt.preventDefault();
         evt.stopPropagation();
+
+        const url = el.getAttribute('modal-href');
+        const $spinner = $modal.find('#modal-spinner');
+        const $content = $modal.find('#modal-content');
+        $spinner.show();
         $modal.fadeIn();
-        let url = el.getAttribute('modal-href');
-        let $content = $modal.find('#modal-content');
+
         $.ajax({
           url: 'pages/' + url,
+          dataType: 'html',
           success: function(html){
             $content.html(html);
+          },
+          error: function(request, status, error) {
+            let text = request.responseText || "Page Not Found";
+            $content.html(`<h1>${request.status} ${request.statusText}</h1><p style="color:#ff4545;">${text}</p>`);
+          },
+          complete: function() {
+            $spinner.hide();
           }
         })
       });
