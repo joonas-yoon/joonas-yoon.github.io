@@ -795,12 +795,12 @@ html {
   position: absolute;
   pointer-events: none;
   width: 100%;
-  height: 5em;
+  height: 100%;
   top: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  transform: translateY(-5em);
+  transform: translateY(-100%);
   transition: transform 200ms ease-in-out;
 }
 
@@ -818,11 +818,12 @@ html {
   animation: modal-up 1000ms cubic-bezier(0.67, 0, 0.33, 1);
   animation-fill-mode: both;
 }
+}
 
 .modal-bg {
   position: absolute;
   width: 100%;
-  height: 50%;
+  height: 5em;
   top: 0;
 }
 
@@ -830,11 +831,21 @@ html {
   transform: translateY(0) !important;
 }
 
+@media (max-width: 576px) {
+  .modal-wrapper {
+    animation-name: modal-up-mobile;
+  }
+  .modal-bg {
+    height: 30%;
+  }
+}
+
 .modal-wrapper .inner, .modal-wrapper .footer {
   position: relative;
 }
 
 .modal-wrapper .footer {
+  margin-top: 5em;
   text-align: center;
 }
 
@@ -935,5 +946,14 @@ html {
   }
   100% {
     top: 5em;
+  }
+}
+
+@keyframes modal-up-mobile {
+  0% {
+    top: 100%;
+  }
+  100% {
+    top: 30%;
   }
 }
