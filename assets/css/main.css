@@ -823,7 +823,6 @@ html {
   animation: modal-up 1000ms cubic-bezier(0.67, 0, 0.33, 1);
   animation-fill-mode: both;
 }
-}
 
 .modal-bg {
   position: absolute;
