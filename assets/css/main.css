@@ -773,6 +773,24 @@ html {
   z-index: 200;
 }
 
+#modal-content .error {
+  text-align: center;
+  font-size: 1.25em;
+}
+
+#modal-content .error > h1 {
+  font-size: 5em;
+}
+
+#modal-content .error > .sorry {
+  font-size: 1.5em;
+  color: #f79b12;
+}
+
+#modal-content .error > .detail {
+  color: #ff4545;
+}
+
 .modal-close {
   position: absolute;
   pointer-events: none;

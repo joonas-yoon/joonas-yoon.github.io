@@ -243,9 +243,8 @@
             $content.html(html);
           },
           error: function (request, status, error) {
-            const text = request.responseText || 'Page Not Found';
             $content.html(
-              `<h1>${request.status} ${request.statusText}</h1><p style="color:#ff4545;">${text}</p>`
+              `<div class="error"><h1>${request.status}</h1><p class="sorry">Sorry, the page you tried cannot be found.</p><p class="detail">${status} ${error}</p></div>`
             );
           },
           complete: function () {
