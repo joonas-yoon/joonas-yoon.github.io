@@ -183,16 +183,18 @@
     }
 
     function addCursorEvents(container) {
-      $(container).find('a').each(function (i, e) {
-        $(e).on('mouseover', function () {
-          enlargeCursor();
-          cursor.style.background = '#fbf074';
+      $(container)
+        .find('a')
+        .each(function (i, e) {
+          $(e).on('mouseover', function () {
+            enlargeCursor();
+            cursor.style.background = '#fbf074';
+          });
+          $(e).on('mouseout', function () {
+            shrinkCursor();
+            cursor.style.background = 'white';
+          });
         });
-        $(e).on('mouseout', function () {
-          shrinkCursor();
-          cursor.style.background = 'white';
-        });
-      });
     }
     addCursorEvents(document);
 
@@ -226,11 +228,17 @@
 
     // modal
     const $modal = $('#modal');
+    const $modalWrapper = $modal.find('.modal-wrapper');
 
     $('a[modal-href]').each(function (i, el) {
       el.addEventListener('click', function (evt) {
         evt.preventDefault();
         evt.stopPropagation();
+
+        const bgColor = el.getAttribute('modal-bg');
+        const fgColor = el.getAttribute('modal-fg');
+        $modalWrapper.css('background-color', bgColor || '#1b1b1b');
+        $modalWrapper.css('color', fgColor || 'white');
 
         const url = el.getAttribute('modal-href');
         const $spinner = $modal.find('#modal-spinner');
