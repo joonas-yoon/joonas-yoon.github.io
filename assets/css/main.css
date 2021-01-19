@@ -791,6 +791,11 @@ html {
   color: #ff4545;
 }
 
+#modal-content ul {
+  list-style: none;
+  padding-left: 1rem;
+}
+
 .modal-close {
   position: absolute;
   pointer-events: none;
