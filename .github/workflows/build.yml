@@ -13,17 +13,14 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Use Node.js
-      
       uses: actions/setup-node@v1
       with:
         node-version: 14.x
     - run: npm ci
     - run: npm run lint
     - run: npm run build --if-present
-      
     - name: Check differences
     - run: echo "::set-env name=DIFF::$(git diff)"
-      
     - name: Commit report
       if: env.DIFF
       run: |
