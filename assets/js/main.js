@@ -43,17 +43,6 @@
     const $nav = $('#nav');
 
     if ($nav.length > 0) {
-      // Shrink effect.
-      $main.scrollex({
-        mode: 'top',
-        enter: function () {
-          $nav.addClass('alt');
-        },
-        leave: function () {
-          $nav.removeClass('alt');
-        },
-      });
-
       // Links.
       const $navA = $nav.find('a');
 
@@ -83,29 +72,6 @@
 
           // No section for this link? Bail.
           if ($section.length < 1) return;
-
-          // Scrollex.
-          $section.scrollex({
-            mode: 'middle',
-            initialize: function () {
-              // Deactivate section.
-              if (skel.canUse('transition')) $section.addClass('inactive');
-            },
-            enter: function () {
-              // Activate section.
-              $section.removeClass('inactive');
-
-              // No locked links? Deactivate all links and activate this section's one.
-              if ($navA.filter('.active-locked').length == 0) {
-                $navA.removeClass('active');
-                $this.addClass('active');
-              }
-
-              // Otherwise, if this section's link is the one that's locked, unlock it.
-              else if ($this.hasClass('active-locked'))
-                $this.removeClass('active-locked');
-            },
-          });
         });
     }
 
