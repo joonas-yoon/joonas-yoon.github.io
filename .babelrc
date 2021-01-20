@@ -6,8 +6,11 @@
   ],
   "plugins": [
     "@babel/plugin-transform-runtime",
+    "@babel/plugin-transform-template-literals",
     "@babel/plugin-proposal-class-properties",
-    "dynamic-import-node"
+    "dynamic-import-node",
+    "transform-es3-property-literals",
+    "transform-es3-member-expression-literals"
   ],
   "ignore": ["assets/js/build", "assets/js/ie", "**/*.min.js"],
   "env": {

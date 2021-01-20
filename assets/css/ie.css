@@ -1,0 +1,11 @@
+html {
+  cursor: default;
+}
+
+#video-anim img {
+  display: block;
+}
+
+#video-anim video {
+  display: none;
+}
