@@ -235,14 +235,16 @@
         evt.preventDefault();
         evt.stopPropagation();
 
-        const bgColor = el.getAttribute('modal-bg');
-        const fgColor = el.getAttribute('modal-fg');
-        $modalWrapper.css('background-color', bgColor || '#1b1b1b');
-        $modalWrapper.css('color', fgColor || 'white');
+        const bgColor = el.getAttribute('modal-bg') || '#1b1b1b';
+        const fgColor = el.getAttribute('modal-fg') || 'white';
+        $modalWrapper.css('background-color', bgColor);
+        $modalWrapper.css('color', fgColor);
+        $modalWrapper.find('.modal-close-button > svg').css('fill', fgColor);
 
         const url = el.getAttribute('modal-href');
         const $spinner = $modal.find('#modal-spinner');
         const $content = $modal.find('#modal-content');
+        $content.html(''); // remove previous page
         $spinner.show();
         $modal.fadeIn();
 

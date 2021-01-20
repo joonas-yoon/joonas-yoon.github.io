@@ -1,20 +1,12 @@
 @import url('font-awesome.min.css');
-@import url('https://fonts.googleapis.com/css2?family=Exo:wght@900&family=Lato:wght@200&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400');
-
-/*
-	Based on Stellar by HTML5 UP @ajlkn
-	Author @joonas-yoon
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
-
-* {
-  font-family: 'Lato', sans-serif;
-}
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Exo:wght@900&family=Lato:wght@200&display=swap');
 
 html, body {
   color: #f3f3f3;
   background-color: black;
+  font-family: 'Lato', 'Noto Sans KR', sans-serif;
+  font-weight: 200;
 }
 
 section {
@@ -44,7 +36,7 @@ a {
 }
 
 a:hover {
-    color: white;
+    color: inherit;
 }
 
 a.disabled, a:hover.disabled {
@@ -816,6 +808,7 @@ html {
   min-height: 100%;
   margin: 0 auto;
   padding: 3rem;
+  font-weight: 300;
   color: white;
   background: #1b1b1b;
   border-top-left-radius: 1rem;
@@ -854,7 +847,6 @@ html {
 }
 
 .modal-close-button > svg {
-  fill: white;
   transform: scale(1);
   transition: transform 200ms ease;
 }
