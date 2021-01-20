@@ -1,0 +1,42 @@
+<h1>Speech Translator with Browser</h1>
+<br>
+<ul>
+  <li><i class="icon fa-github"></i> <a href="https://github.com/joonas-yoon/speech-translator" target="_blank">GitHub repository - chrome extension</a></li>
+  <li><i class="icon fa-github"></i> <a href="https://github.com/joonas-yoon/speech-translator-server" target="_blank">GitHub repository - API server</a></li>
+  <li><i class="icon fas fa-link"></i> <a href="http://speechtranslator.net/" target="_blank">API server</a></li>
+  <li><i class="icon fas fa-link"></i> <a href="https://blog.joonas.io/85" target="_blank">Blog post</a></li>
+</ul>
+<br>
+
+<p>
+  <b>Abstract</b>
+  <br>
+  구글 크롬 브라우저에서 <a href="https://developer.chrome.com/docs/extensions/reference/tabCapture/" target="_blank"><code>chrome.tabCapture</code></a> API를 통해 크롬 탭의 <b>미디어 스트림을 <a href="https://cloud.google.com/speech-to-text" target="_blank">Speech-to-Text(STT)</a></b> 후에 그 결과를 다시 <b>번역</b>하여 보여주는 브라우저 확장 프로그램이다.
+  <br>
+  <iframe class="d-block mx-auto my-3" width="560" height="315" src="https://www.youtube.com/embed/GaV_2DHSElM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+
+<p>이 프로젝트를 시작하게 된 계기는, 영화 &#12298;데드풀 2&#12299;의 인터뷰 영상을 찾아보던 중 <a href="https://www.imdb.com/" target="_blank">IMDb</a>에서 원어민 속도의 인터뷰를 귀가 따라갈 수 없어서였다.</p>
+<p>자막의 필요성을 크게 느꼈고, 유튜브와 같이 실시간 자막 기능에 의존하지 않는 형태의 프로그램을 구상하였다.</p>
+<p>탭의 소리만 꺼낼 수 있다면 STT를 활용하여 자막을 충분히 제공할 수 있을 것이라는 생각이 들었고, 관련 API를 알아보던 중 어렵지 않게 가능할 것이라는 생각에 시작하였다.</p>
+
+<div class="text-center">
+  <img src="https://github.com/joonas-yoon/speech-translator/raw/master/docs/images/overview.png" class="rounded mx-auto my-3 d-block" style="width:100%; max-width: 800px;" />
+  <p><i>Pipeline for Chrome extension</i></p>
+</div>
+
+<p>탭에서 얻은 미디어 스트림을 청크 단위로 쪼개어 API Server로 요청한다. API Server는 미디어 스트림에서 STT 결과를 응답하며, 빠른 반응성을 위해 UI에 STT 결과를 먼저 보여준다.</p>
+<p>STT 된 텍스트를 다시 API Server로 전송하여 사용자가 설정한 언어로 다시 번역을 요청하여 수신된 번역 텍스트를 비동기적으로 UI에 추가한다.</p>
+<p>크롬 확장 프로그램에서 유저가 보고 있는 페이지 위에 HTML과 CSS를 삽입(inject)하여 이질감 없는 UI/UX를 제공하고자 하였다.</p>
+<p>언어 설정에 사용된 Dropdown과, 자막의 위치를 움직이는 Draggable 등은 모두 Vanilla JS로 직접 구현하였다.</p>
+
+<div class="text-center">
+  <img src="https://user-images.githubusercontent.com/9527681/90546588-40314880-e1c5-11ea-933b-555655be93b4.png" class="rounded mx-auto my-3 d-block" style="width:100%; max-width: 800px;" />
+  <p style="margin-bottom: 0;"><i>*Pipeline for API Server with GCP</i></p>
+  <p class="text-right">*2019년 이후로는 AWS가 아닌 GCP VM을 사용하였음</p>
+</div>
+
+<p>Google Cloud Platform과 Chrome extension의 사이에서 원활한 서비스 제공을 위해 과금, 스케일링 등의 운영적인 이점과 extension과의 인터페이스(interface)를 제공한다.</p>
+<p>확장 프로그램에서 요청으로 들어온 미디어 스트림은 <a href="https://ffmpeg.org/" target="_blank">FFMpeg</a>로 다시 wav 파일로 변환한다. 이를 GCP Storage에 저장하여 STT된 결과를 응답으로 보낸다. 이후 다시 요청되는 텍스트를 번역한 결과를 응답한다.</p>
+
+<p><a href="https://joonas.tistory.com/100" target="_blank">서버 운영 및 유지비</a> 문제로 서버는 중단하였다. 오픈 소스를 내려받아 직접 빌드하여 사용할 수 있다.</p>
