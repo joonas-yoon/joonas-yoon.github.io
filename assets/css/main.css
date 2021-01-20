@@ -1,12 +1,6 @@
 @import url('font-awesome.min.css');
-@import url('https://fonts.googleapis.com/css2?family=Exo:wght@900&family=Lato:wght@200&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400');
-
-/*
-	Based on Stellar by HTML5 UP @ajlkn
-	Author @joonas-yoon
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
+@import url('https://fonts.googleapis.com/css2?family=Exo:wght@900&family=Lato:wght@200&display=swap');
 
 * {
   font-family: 'Lato', sans-serif;
