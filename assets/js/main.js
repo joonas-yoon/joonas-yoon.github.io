@@ -166,7 +166,6 @@
     document.addEventListener('touchcancel', hideCursor, false);
 
     function onMouseMove(e) {
-      cursor.style.display = 'block';
       cursor.style.top = e.pageY + 'px';
       cursor.style.left = e.pageX + 'px';
     }
@@ -183,16 +182,21 @@
       cursor.style.display = 'none';
     }
 
-    $('a').each(function (i, e) {
-      $(e).on('mouseover', function () {
-        enlargeCursor();
-        cursor.style.background = '#fbf074';
-      });
-      $(e).on('mouseout', function () {
-        shrinkCursor();
-        cursor.style.background = 'white';
-      });
-    });
+    function addCursorEvents(container) {
+      $(container)
+        .find('a')
+        .each(function (i, e) {
+          $(e).on('mouseover', function () {
+            enlargeCursor();
+            cursor.style.background = '#fbf074';
+          });
+          $(e).on('mouseout', function () {
+            shrinkCursor();
+            cursor.style.background = 'white';
+          });
+        });
+    }
+    addCursorEvents(document);
 
     // menu
     $('#top a[href]').on('click', function () {
@@ -224,11 +228,17 @@
 
     // modal
     const $modal = $('#modal');
+    const $modalWrapper = $modal.find('.modal-wrapper');
 
     $('a[modal-href]').each(function (i, el) {
       el.addEventListener('click', function (evt) {
         evt.preventDefault();
         evt.stopPropagation();
+
+        const bgColor = el.getAttribute('modal-bg');
+        const fgColor = el.getAttribute('modal-fg');
+        $modalWrapper.css('background-color', bgColor || '#1b1b1b');
+        $modalWrapper.css('color', fgColor || 'white');
 
         const url = el.getAttribute('modal-href');
         const $spinner = $modal.find('#modal-spinner');
@@ -241,11 +251,11 @@
           dataType: 'html',
           success: function (html) {
             $content.html(html);
+            addCursorEvents($content);
           },
           error: function (request, status, error) {
-            const text = request.responseText || 'Page Not Found';
             $content.html(
-              `<h1>${request.status} ${request.statusText}</h1><p style="color:#ff4545;">${text}</p>`
+              `<div class="error"><h1>${request.status}</h1><p class="sorry">Sorry, the page you tried cannot be found.</p><p class="detail">${status} ${error}</p></div>`
             );
           },
           complete: function () {

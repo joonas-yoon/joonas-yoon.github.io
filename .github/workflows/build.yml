@@ -1,0 +1,33 @@
+name: build js
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: 14.x
+
+    - run: npm ci
+    - run: npm run lint
+    - run: npm run build --if-present
+
+    - name: Commit report
+      run: |
+          echo "git.diff" >> .gitignore
+          git diff > git.diff
+          [ -s git.diff ] && echo "::stop-commands::skip-commit" || echo ""
+          git config --global user.name 'joonas-bot'
+          git config --global user.email 'joonas-yoon@users.noreply.github.com'
+          git add -A
+          git commit -m ":construction_worker: build by github action"
+          git push

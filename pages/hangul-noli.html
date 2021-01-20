@@ -1,0 +1,23 @@
+<h1>Obfuscated Korean Game</h1>
+<h4><i>Hangul Noli</i></h4>
+<br>
+<ul>
+  <li><i class="icon fa-github"></i> <a href="https://github.com/joonas-yoon/hangul-noli" target="_blank">GitHub repository</a></li>
+  <li><i class="icon fas fa-link"></i> <a href="https://www.joonas.io/hangul-noli" target="_blank">Website</a></li>
+</ul>
+<br>
+<p>인터넷 밈 중에 하나인, 한국인만 읽을 수 있는 일명 '에어비엔비 체'에서 큰 영감을 받아 시작한 프로젝트이다.</p>
+<p>
+  '에어비엔비 체'는 에어비엔비에 남긴 숙소 평가를 번역기로 해석할 수 없도록 만들어 한국어에 (모국어에 가깝게) 능통하지 않은 사람은 해석할 수 없도록 만든 문체를 의미한다.<br>
+  그 예로, "화장실이 너무 작다"는 "홧장싫익 넘무 작따"와 같이 <b>난독화</b>할 수 있다.
+</p>
+<br>
+<p>목표는 Google의 <a href="https://www.google.com/recaptcha/about/" target="_blank">reCAPTCHA</a>의 형태로 한국인임을 <b>인증하는 수단</b>으로 활용되기를 기대하였고, API로 제작할 예정이었다.</p>
+<p>하지만 기획 단계에서, 문맥이 없이는 한국인조차 이것을 쉽게 읽을 수 없다는 점에서 그 정확도와 활용성이 떨어진다고 판단했다. 그리고 언어로 인증한다는 점이 인종 차별적인 부분과 이어질 수 있다는 점을 고려하여, 가볍게 즐길 수 있는 게임의 형태로 제작하였다.</p>
+<br>
+<p>
+  한글 자음/모음 분리/조합 자바스크립트 라이브러리인 <a href="https://github.com/joonas-yoon/Hangul.js/tree/1696205ce4bc43aed7ac47c52648a1a842b45e59" target="_blank">Hangul.js</a>를 fork하여 난독화 기능을 추가하였다.<br>
+  <code>Hangul.obfuscate(string)</code> 메소드는 가능한 받침을 무작위로 추가한 문자열을 반환한다. (가&rarr;갃, 갏 등)
+</p>
+<p>문제로 제시되는 모든 문장의 원형은 JSON 포맷으로 저장되어 있으며, 누구든 새로운 문장을 추가하거나 변경하여 기여할 수 있다. 현재 버전은 속담만 제공하지만, 유명한 영화 제목 등의 여러 카테고리로 확장할 수 있다.</p>
+<p>HTML의 <a href="https://developer.mozilla.org/ko/docs/Web/HTML/Global_attributes/contenteditable" target="_blank">contentEditable 속성</a>을 사용하여 이질감 없고 직관적인 UI/UX를 제공하였다.</p>
