@@ -592,8 +592,8 @@ a.disabled, a:hover.disabled {
 /* selection */
 
 ::selection {
-  color: #efefef;
-  background-color: #020202;
+  color: #020202;
+  background-color: #efefef;
 }
 
 /* scroll bar */
@@ -613,6 +613,24 @@ a.disabled, a:hover.disabled {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #9f9f9f;
+}
+
+/* Loader */
+
+.is-loading-overlay {
+  display: none;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  background: transparent\9;
+  background: rgba(0,0,0,.5);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#66000000,endColorstr=#66000000);
+  zoom: 1;
+  animation: text-gradient 8s linear infinite;
+}
+
+.is-loading .is-loading-overlay {
+  display: block;
 }
 
 /* Cursor */
@@ -960,4 +978,13 @@ html {
   100% {
     top: 30%;
   }
+}
+
+@keyframes text-gradient {
+  0%   { color: #ffffff; }
+  20%   { color: #f54444; }
+  40%   { color: #d3de24; }
+  60%   { color: #24de77; }
+  80%   { color: #2499de; }
+  100%   { color: #ffffff; }
 }
