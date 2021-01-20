@@ -1,22 +1,25 @@
 {
-  "presets":  [
-    ["@babel/preset-env",{
-      "targets": "chrome 55"
+  "presets": [
+    ["env", {
+      "targets": {
+        "chrome": "55"
+      }
     }]
   ],
   "plugins": [
-    "@babel/plugin-transform-runtime",
-    "@babel/plugin-transform-template-literals",
     "@babel/plugin-proposal-class-properties",
-    "dynamic-import-node",
-    "transform-es3-property-literals",
-    "transform-es3-member-expression-literals"
+    "@babel/plugin-syntax-dynamic-import",
+    "@babel/plugin-transform-property-literals",
+    "@babel/plugin-transform-member-expression-literals",
+    "@babel/plugin-transform-runtime",
+    "@babel/plugin-transform-template-literals"
   ],
   "ignore": ["assets/js/build", "assets/js/ie", "**/*.min.js"],
   "env": {
     "production": {
       "comments": false,
       "presets": [
+        ["env"],
         ["minify"]
       ],
       "plugins": [
