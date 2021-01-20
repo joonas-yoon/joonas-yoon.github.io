@@ -7,6 +7,7 @@ html, body {
   background-color: black;
   font-family: 'Lato', 'Noto Sans KR', sans-serif;
   font-weight: 200;
+  overflow-x: hidden;
 }
 
 section {
@@ -752,10 +753,10 @@ html {
 @media (max-width: 576px) {
   .sidebar.socials {
     display: block;
-    width: 100%;
     height: fit-content;
     top: 0;
-    left: 0;
+    left: auto;
+    right: 0;
     margin-top: 1rem;
     padding-left: 4rem;
     padding-right: 1.5rem;
