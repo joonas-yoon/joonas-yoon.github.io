@@ -1,0 +1,26 @@
+<h1>YouTube&trade; Comment Language Filter</h1>
+
+<ul>
+  <li><i class="icon fa-github"></i> <a href="https://github.com/joonas-yoon/ytcf" target="_blank">GitHub repository - joonas-yoon/ytcf</a></li>
+  <li><i class="icon fa-chrome"></i> <a href="https://chrome.google.com/webstore/detail/youtube-comment-language/jdiikkhlhlgndjllhoinidnkbgkjfepe" target="_blank">Available on Chrome Web Store</a></li>
+</ul>
+
+<h3>Overview</h3>
+
+<img alt="preview" src="https://github.com/joonas-yoon/ytcf/raw/main/docs/images/preview.gif" class="display-block mx-auto my-3" style="max-width: 480px;"/>
+
+<h3>Description</h3>
+
+<p>유튜브 PC버전에서 특정 언어만 보여주는 브라우저 확장 프로그램이다.</p>
+
+<p>
+  유튜브에서 영상들의 댓글을 보다 보면, "한국인 찾습니다", "한글 댓글만 볼 수 없나?"라는 글이 종종 보였다.
+  <br>
+  구현이 비교적 간단하고 (구글 번역이 있으니) 충분히 지원 가능할텐데, 왜 지원하지 않을까 생각했다. 지금 생각해보면 '단절된 소통이 갈등의 씨앗이 되는 <a href="https://en.wikipedia.org/wiki/Racial_discrimination">인종 차별적인 문제</a>로 이어질 수도 있겠구나싶다.
+</p>
+
+<p>이런 개발적 호기심은, 심심한 주말 이틀동안 프로토타입을 개발하기 아주 좋았다. 간단한 조사를 해보니 <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/i18n/detectLanguage" target="_blank"><code>i18n.detectLanguage()</code></a> API가 있었고 Chrome에서 호환도 되고 있었다.</p>
+
+<p>이전에 <i>Twitch Chat tl;dr</i> 를 만들었던 코드를 그대로 쓰려했으나, <a href="https://developer.mozilla.org/docs/Web/API/MutationObserver" target="_blank">Mutation Observer</a>를 알게되어 이 프로젝트에 적용하였다.</p>
+
+<p>항상 해보고 싶었던 <b>다국어 지원(Internationalization and Localization)</b>을 처음으로 해보았다.</p>

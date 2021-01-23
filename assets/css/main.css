@@ -803,8 +803,10 @@ html {
 }
 
 #modal-content ul {
-  list-style: none;
+  margin: 1rem auto;
   padding-left: 1rem;
+  line-height: 2em;
+  list-style: none;
 }
 
 .modal-close {
