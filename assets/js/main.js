@@ -129,7 +129,7 @@
     const $modal = $('#modal');
     const $modalWrapper = $modal.find('.modal-wrapper');
 
-    $('a[modal-href]').each(function (i, el) {
+    $('[modal-href]').each(function (i, el) {
       el.addEventListener('click', function (evt) {
         evt.preventDefault();
         evt.stopPropagation();
