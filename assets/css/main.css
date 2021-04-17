@@ -802,6 +802,10 @@ html {
   color: #ff4545;
 }
 
+#modal-content a.button-web-store {
+  text-decoration: none;
+}
+
 #modal-content ul {
   margin: 1rem auto;
   padding-left: 1rem;

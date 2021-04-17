@@ -2,8 +2,16 @@
 
 <ul>
   <li><i class="icon fa-github"></i> <a href="https://github.com/joonas-yoon/ytcf" target="_blank">GitHub repository - joonas-yoon/ytcf</a></li>
-  <li><i class="icon fa-chrome"></i> <a href="https://chrome.google.com/webstore/detail/youtube-comment-language/jdiikkhlhlgndjllhoinidnkbgkjfepe" target="_blank">Available on Chrome Web Store</a></li>
 </ul>
+
+<p>
+  <a href="https://store.whale.naver.com/detail/iphmcbbipommlpkmgffhohlkomhakcel" target="_blank" class="button-web-store">
+    <img src="images/whale-store.png"/>
+  </a>
+  <a href="https://chrome.google.com/webstore/detail/youtube-comment-language/jdiikkhlhlgndjllhoinidnkbgkjfepe" target="_blank" class="button-web-store">
+    <img src="images/chrome-web-store.png"/>
+  </a>
+</p>
 
 <h3>Overview</h3>
 
@@ -16,7 +24,9 @@
 <p>
   유튜브에서 영상들의 댓글을 보다 보면, "한국인 찾습니다", "한글 댓글만 볼 수 없나?"라는 글이 종종 보였다.
   <br>
-  구현이 비교적 간단하고 (구글 번역이 있으니) 충분히 지원 가능할텐데, 왜 지원하지 않을까 생각했다. 지금 생각해보면 '단절된 소통이 갈등의 씨앗이 되는 <a href="https://en.wikipedia.org/wiki/Racial_discrimination">인종 차별적인 문제</a>로 이어질 수도 있겠구나싶다.
+  구현이 비교적 간단하고 (구글 번역이 있으니) 충분히 지원 가능할텐데, 왜 지원하지 않을까 생각했다. 추측컨대 단절된 소통이 갈등의 씨앗이 되는 <a href="https://en.wikipedia.org/wiki/Racial_discrimination">인종 차별적인 문제</a>로 이어질 수도 있어서 지원하지 않는다고 생각한다.
+  <br>
+  이 기능을 사용하는 사람은, 모국어가 아닌 언어를 보고 싶지 않은 사람일 것이다. 따라서 불필요한 만남으로 생기는 무분별한 혐오 댓글을 막을 수 있지 않을까 생각해본다.
 </p>
 
 <p>이런 개발적 호기심은, 심심한 주말 이틀동안 프로토타입을 개발하기 아주 좋았다. 간단한 조사를 해보니 <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/i18n/detectLanguage" target="_blank"><code>i18n.detectLanguage()</code></a> API가 있었고 Chrome에서 호환도 되고 있었다.</p>
@@ -24,3 +34,5 @@
 <p>이전에 <i>Twitch Chat tl;dr</i> 를 만들었던 코드를 그대로 쓰려했으나, <a href="https://developer.mozilla.org/docs/Web/API/MutationObserver" target="_blank">Mutation Observer</a>를 알게되어 이 프로젝트에 적용하였다.</p>
 
 <p>항상 해보고 싶었던 <b>다국어 지원(Internationalization and Localization)</b>을 처음으로 해보았다.</p>
+
+<p>2021년 4월 기준, 웨일과 크롬 웹스토어를 합쳐서 <u><b>21개국에서 약 2300명이</b></u>(한국, 미국, 사우디아라비아, 일본, 브라질, 러시아 등)에서 사용하고 있다.</p>
