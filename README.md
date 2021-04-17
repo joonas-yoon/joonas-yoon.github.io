@@ -2,6 +2,10 @@
 
 ![build js](https://github.com/joonas-yoon/joonas-yoon.github.io/workflows/build%20js/badge.svg)
 
+# About me
+
+![metrics](https://raw.githubusercontent.com/joonas-yoon/joonas-yoon/master/metrics.svg)
+
 # Icons
 
 - Font Awesome (fortawesome.github.com/Font-Awesome)
