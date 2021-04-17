@@ -715,8 +715,18 @@ html {
 }
 .sidebar.navigator ul li {
   border: none;
+  width: 30px;
+  height: 30px;
 }
 .sidebar.navigator a {
+  display: block;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  border-radius: 50%;
+  transition: all 200ms ease-in-out;
+}
+.sidebar.navigator a > .circle {
   display: block;
   width: 10px;
   height: 10px;
@@ -725,6 +735,10 @@ html {
   transition: all 200ms ease-in-out;
 }
 .sidebar.navigator a.active {
+  width: 22px;
+  height: 22px;
+}
+.sidebar.navigator a.active > .circle {
   width: 18px;
   height: 18px;
   margin-left: -4px;
