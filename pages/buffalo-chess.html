@@ -1,0 +1,34 @@
+<h1>♟ Buffalo Chess <small><i>(a.k.a. Bison)</i></small></h1>
+
+<ul>
+  <li><i class="icon fa-github"></i> <a href="https://github.com/joonas-yoon/buffalo-chess" target="_blank">GitHub repository - joonas-yoon/buffalo-chess</a></li>
+  <li><i class="icon fas fa-link"></i> <a href="https://www.joonas.io/buffalo-chess" target="_blank">Play here</a></li>
+</ul>
+
+<h1>Preview</h1>
+
+<img src="https://github.com/joonas-yoon/buffalo-chess/raw/main/images/thumbnail.png" class="rounded mx-auto my-3 d-block mw-100"/>
+
+<h1>Description</h1>
+
+<p>강을 건너는 물소와, 그를 막는 인디언을 플레이하는 <b>2인용 비대칭 전략 게임</b>이다.</p>
+<p>내용과 구성이 흥미롭고 마음에 들어서 보드 게임을 구매하여 플레이하고 싶었지만, 상대도 없고 온라인으로 가볍게 즐기고 싶었다.</p>
+<p>규칙과 설명서를 보고 javascript로 만드는 것도 생각보다 간단할 것 같아서 행동으로 옮겨봤다.</p>
+
+<p>
+  기존의 보드 게임은 가로 11칸, 세로 7줄으로 되어있는데, 인디언 1명, 사냥개 4마리, 물소 11마리는 화면에 배치했을 때 한 눈에 들어오지 않았다.
+  <br>
+  여러 번의 실험을 해보고, 비율이 비슷한 가로 7칸, 세로 5줄, 그리고 사냥개 2마리로 구현하였다. 이 부분은 크기에 따라 난이도를 고르는 것도 염두하고 있다.
+</p>
+
+<p>Canvas가 아니라 HTML element와 CSS만 사용하였다. 게임에는 3개의 레이어(보드판, 말, 안내표시)를 사용하였다.</p>
+
+<p>
+  인공지능 학습이 가능하도록 javascript CLI나 별도의 UI로 게임 데이터를 읽고 제어할 수 있도록 만들고자 했으나, (언젠가 꼭 해보고 싶은 작업 중 하나이다)
+  <br>
+  그 전에, 한 쪽이 항상 이길 수 있도록 하는 휴리스틱이 있는 지부터 확인했다.
+  <br>
+  플레이어를 1P(인디언과 사냥개)로 고정하고, 물소만 AI(휴리스틱)로 만들어봤는데 컴퓨터가 무조건 이기는 대로 만들 수 있었다.
+</p>
+
+<p>물소까지 제어할 수 있는 2인 모드를 만들고 싶으나, 리플레이까지만 구현하고 결과물이 만족스러워서 이대로 두었다.</p>
