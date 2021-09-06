@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="1200px" height="500px" viewBox="0 0 1127 327" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
+  <style>
+    path {
+      fill: none;
+      stroke: #000;
+      stroke-width: 46px;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      
+      animation-duration: 6s;
+      animation-name: slide;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+      animation-fill-mode: forwards;
+      animation-direction: alternate;
+    }
+    @keyframes slide {
+      from {
+        stroke-dasharray: 10 500;
+        stroke-dashoffset: 1200;
+        opacity: 0;
+      }
+      10% {
+        opacity: 1.0;
+      }
+      40% {
+        stroke-dasharray: 500 0;
+        stroke-dashoffset: 0;
+      }
+    }
+  </style>
+  <defs>
+    <bx:grid x="0" y="0" width="55.32" height="52.837"/>
+  </defs>
+  <g>
+    <path d="M 23.977 211.972 C 23.977 211.972 26.693 298.346 103.288 299.975 C 179.883 301.604 185.86 222.293 185.316 210.342 C 184.772 198.391 185.316 23.471 185.316 23.471"/>
+    <path d="M 331.92 35.25 C 331.92 35.25 260.916 36.223 260.372 109.559 C 259.828 182.895 331.92 179.5 331.92 179.5 C 331.92 179.5 404.622 186.087 404.622 108.948 C 404.622 31.809 332.463 35.25 331.92 35.25 Z"/>
+    <path d="M 552.564 36.297 C 552.564 36.297 481.56 37.27 481.016 110.606 C 480.472 183.942 552.564 180.547 552.564 180.547 C 552.564 180.547 625.266 187.134 625.266 109.995 C 625.266 32.856 553.107 36.297 552.564 36.297 Z"/>
+    <path d="M 701.248 184.953 L 701.248 102.253 C 701.248 102.253 705.077 32.571 774.376 33.72 C 843.675 34.869 847.504 105.699 847.504 105.699 L 847.504 187.634"/>
+    <path d="M 925.35 33.11 L 1010.989 32.188 C 1010.989 32.782 1079.648 34.868 1081.053 105.699 C 1082.458 176.53 1034.348 183.375 1012.52 188.016 C 990.692 192.657 927.075 185.566 925.35 112.208 L 1006.168 112.208"/>
+  </g>
+</svg>

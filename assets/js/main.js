@@ -22,36 +22,6 @@
       return isIE || isSafari;
     }
 
-    // animation video
-    const videobox = document.getElementById('video-anim');
-    const video = videobox.querySelector('video');
-    if (unsupportedBroswer() || !document.createElement('video').canPlayType) {
-      videobox.querySelector('img').style.display = 'block';
-      video.style.display = 'none';
-    } else {
-      video.style.display = 'block';
-      video.autoplay = true;
-      video.muted = true;
-      video.controls = false;
-      video.load();
-      const playPromise = video.play();
-      // In browsers that don’t yet support this functionality,
-      // playPromise won’t be defined.
-      if (playPromise !== undefined) {
-        playPromise
-          .then(function () {
-            // Automatic playback started!
-          })
-          .catch(function (error) {
-            // Automatic playback failed.
-            // Show a UI element to let the user manually start playback.
-            videobox.querySelector('img').style.display = 'block';
-            video.style.display = 'none';
-            console.error(error);
-          });
-      }
-    }
-
     // cursor event
     const cursor = document.getElementById('cursor');
     const pressSize = 64;
