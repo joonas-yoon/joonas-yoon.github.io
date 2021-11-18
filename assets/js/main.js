@@ -202,6 +202,8 @@
         self.x = nx;
         self.y = ny;
         self.z = nz;
+        self.dx += self.ix * 0.005;
+        self.dy += self.iy * 0.005;
         self.ix *= 0.95;
         self.iy *= 0.95;
       };
