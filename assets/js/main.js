@@ -1,4 +1,5 @@
 (function ($) {
+  const DEBUG = false;
   $(function () {
     const $window = $(window);
     const $body = $('body');
@@ -152,6 +153,8 @@
       this.x = x;
       this.y = y;
       this.z = Math.random();
+      this.ix = 0; // inertia by force
+      this.iy = 0; // inertia by force
       this.width = 0;
       this.height = 0;
 
@@ -190,15 +193,17 @@
       };
 
       const move = function () {
-        const nx = self.x + self.dx;
-        const ny = self.y + self.dy;
+        const nx = self.x + self.dx + self.ix;
+        const ny = self.y + self.dy + self.iy;
         const nz = self.z + self.dz;
         if (nx <= 0 || nx >= self.width) self.dx *= -1;
         if (ny <= 0 || ny >= self.height) self.dy *= -1;
-        if (ny <= 0 || ny >= 1.5) self.dz *= -1;
-        self.x += self.dx;
-        self.y += self.dy;
-        self.z += self.dz;
+        if (nz <= 0 || nz >= 1.5) self.dz *= -1;
+        self.x = nx;
+        self.y = ny;
+        self.z = nz;
+        self.ix *= 0.95;
+        self.iy *= 0.95;
       };
 
       const distance = function (p) {
@@ -213,16 +218,39 @@
       const getY = function () {
         return self.y;
       };
+      const setXY = function (x, y) {
+        self.x = x;
+        self.y = y;
+      };
+      const setVector = function (dx, dy) {
+        self.dx = dx;
+        self.dy = dy;
+      };
+      const getVector = function () {
+        return {
+          dx: self.dx + self.ix,
+          dy: self.dy + self.iy,
+        };
+      };
+
+      const pushForce = function (x1, y1) {
+        self.ix += x1;
+        self.iy += y1;
+      };
 
       return {
         getX: getX,
         getY: getY,
+        set: setXY,
+        setVector: setVector,
+        getVector: getVector,
         setBounds: setBounds,
         drawLine: drawLine,
         drawCircle: drawCircle,
         draw: draw,
         move: move,
         getDistance: distance,
+        pushForce: pushForce,
       };
     }
 
@@ -230,12 +258,17 @@
     const ctx = canvas.getContext('2d');
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
+    const cursorDot = new Dot(Infinity, Infinity);
     const dots = [];
-    for (let i = 0; i < 50 + canvas.width / 20; ++i) {
+    for (let i = 0; i < 100 + Math.max(canvas.width, canvas.height) / 20; ++i) {
       dots.push(
         new Dot(Math.random() * canvas.width, Math.random() * canvas.height)
       );
     }
+
+    window.addEventListener('mousemove', function (evt) {
+      cursorDot.set(evt.pageX, evt.pageY);
+    });
 
     // resize the canvas to fill browser window dynamically
     window.addEventListener('resize', resizeCanvas, true);
@@ -252,16 +285,48 @@
 
     function drawDots() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      dots.forEach((d, i) => {
-        d.draw(ctx);
+      const radius = Math.min(window.innerWidth, window.innerHeight) / 5;
+      if (DEBUG) {
+        cursorDot.drawCircle(ctx, cursorDot.getX(), cursorDot.getY(), radius, 'rgba(0, 255, 255, 0.1)');
+      }
+      dots.forEach((dot, i) => {
         for (let j = i + 1; j < dots.length; ++j) {
-          const dist = d.getDistance(dots[j]);
+          const dist = dot.getDistance(dots[j]);
           if (dist < 150) {
             const opa = Math.max(0, 0.8 - dist / 150);
-            d.drawLine(ctx, d, dots[j], 'rgba(255, 255, 255, ' + opa + ')');
+            dot.drawLine(ctx, dot, dots[j], 'rgba(255, 255, 255, ' + opa + ')');
           }
         }
-        d.move();
+        // interactive with cursor
+        if (cursorDot.getX() != Infinity) {
+          const distFromCursor = cursorDot.getDistance(dot);
+          if (distFromCursor <= radius) {
+            const dx = dot.getX() - cursorDot.getX();
+            const dy = dot.getY() - cursorDot.getY();
+            const nx = (radius / distFromCursor) * dx;
+            const ny = (radius / distFromCursor) * dy;
+            const refl = new Dot(cursorDot.getX() + nx, cursorDot.getY() + ny);
+            const {dx: _dx, dy: _dy} = dot.getVector();
+            const dw = distFromCursor / radius;
+            dot.pushForce(
+              (refl.getX() - dot.getX()) * (1 - dw) * 0.001,
+              (refl.getY() - dot.getY()) * (1 - dw) * 0.001
+            );
+            if (DEBUG) {
+              refl.drawLine(ctx, refl, dot, 'rgb(255, 255, 0, 0.5)');
+              cursorDot.drawLine(ctx, cursorDot, dot, 'rgb(255, 0, 255, 0.5)');
+            }
+          }
+
+          if (DEBUG) {
+            const {dx, dy} = dot.getVector();
+            const dot2 = new Dot(dot.getX() + dx * 100, dot.getY() + dy * 100);
+            dot.drawLine(ctx, dot, dot2, 'rgb(255, 128, 0, 0.5)');
+          }
+        }
+        // update and draw
+        dot.move();
+        dot.draw(ctx);
       });
       window.requestAnimationFrame(drawDots);
     }
