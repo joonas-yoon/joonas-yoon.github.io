@@ -36,8 +36,8 @@
     document.addEventListener('touchcancel', hideCursor, false);
 
     function onMouseMove(e) {
-      cursor.style.top = e.pageY + 'px';
-      cursor.style.left = e.pageX + 'px';
+      cursor.style.top = e.clientY + 'px';
+      cursor.style.left = e.clientX + 'px';
     }
 
     function enlargeCursor(e) {
@@ -271,7 +271,7 @@
     }
 
     window.addEventListener('mousemove', function (evt) {
-      cursorDot.set(evt.pageX, evt.pageY);
+      cursorDot.set(evt.clientX, evt.clientY);
     });
 
     // resize the canvas to fill browser window dynamically

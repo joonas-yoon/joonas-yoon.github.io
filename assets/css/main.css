@@ -731,7 +731,7 @@ html {
 
 #cursor {
   display: block;
-  position: absolute;
+  position: fixed;
   top: -5rem;
   left: -5rem;
   width: 32px;
@@ -748,12 +748,6 @@ html {
   transform: translate(-50%, -50%);
   transition: width 200ms ease-in, height 200ms ease-in,
     background 200ms ease-in-out;
-}
-
-@media (max-width: 576px) {
-  #cursor {
-    display: none;
-  }
 }
 
 /* Sidebar */
