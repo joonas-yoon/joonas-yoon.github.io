@@ -265,7 +265,10 @@
     const screenResolution = canvas.width * canvas.height;
     const dotCounts = screenResolution / 100 / 128;
     for (let i = 0; i < dotCounts; ++i) {
-      const dot = new Dot(Math.random() * canvas.width, Math.random() * canvas.height);
+      const dot = new Dot(
+        Math.random() * canvas.width,
+        Math.random() * canvas.height
+      );
       dot.setBounds(canvas.width, canvas.height);
       dots.push(dot);
     }
@@ -291,7 +294,13 @@
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       const radius = Math.min(window.innerWidth, window.innerHeight) / 5;
       if (DEBUG) {
-        cursorDot.drawCircle(ctx, cursorDot.getX(), cursorDot.getY(), radius, 'rgba(0, 255, 255, 0.1)');
+        cursorDot.drawCircle(
+          ctx,
+          cursorDot.getX(),
+          cursorDot.getY(),
+          radius,
+          'rgba(0, 255, 255, 0.1)'
+        );
       }
       dots.forEach((dot, i) => {
         for (let j = i + 1; j < dots.length; ++j) {
@@ -310,7 +319,7 @@
             const nx = (radius / distFromCursor) * dx;
             const ny = (radius / distFromCursor) * dy;
             const refl = new Dot(cursorDot.getX() + nx, cursorDot.getY() + ny);
-            const {dx: _dx, dy: _dy} = dot.getVector();
+            const { dx: _dx, dy: _dy } = dot.getVector();
             const dw = distFromCursor / radius;
             dot.pushForce(
               (refl.getX() - dot.getX()) * (1 - dw) * 0.001,
@@ -323,7 +332,7 @@
           }
 
           if (DEBUG) {
-            const {dx, dy} = dot.getVector();
+            const { dx, dy } = dot.getVector();
             const dot2 = new Dot(dot.getX() + dx * 100, dot.getY() + dy * 100);
             dot.drawLine(ctx, dot, dot2, 'rgb(255, 128, 0, 0.5)');
           }
