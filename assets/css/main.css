@@ -142,6 +142,10 @@ a:hover.disabled {
   margin-left: -2rem;
 }
 
+.main-cover #canvas-bg {
+  width: 100%;
+}
+
 @media screen and (max-width: 768px) {
   .main-cover {
     z-index: 95;

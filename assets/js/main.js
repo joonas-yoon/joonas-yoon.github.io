@@ -199,8 +199,8 @@
         if (nx <= 0 || nx >= self.width) self.dx *= -1;
         if (ny <= 0 || ny >= self.height) self.dy *= -1;
         if (nz <= 0 || nz >= 1.5) self.dz *= -1;
-        self.x = nx;
-        self.y = ny;
+        self.x = Math.max(0, Math.min(nx, self.width));
+        self.y = Math.max(0, Math.min(ny, self.height));
         self.z = nz;
         self.dx += self.ix * 0.005;
         self.dy += self.iy * 0.005;
@@ -262,10 +262,12 @@
     canvas.height = window.innerHeight;
     const cursorDot = new Dot(Infinity, Infinity);
     const dots = [];
-    for (let i = 0; i < 100 + Math.max(canvas.width, canvas.height) / 20; ++i) {
-      dots.push(
-        new Dot(Math.random() * canvas.width, Math.random() * canvas.height)
-      );
+    const screenResolution = canvas.width * canvas.height;
+    const dotCounts = screenResolution / 100 / 128;
+    for (let i = 0; i < dotCounts; ++i) {
+      const dot = new Dot(Math.random() * canvas.width, Math.random() * canvas.height);
+      dot.setBounds(canvas.width, canvas.height);
+      dots.push(dot);
     }
 
     window.addEventListener('mousemove', function (evt) {
