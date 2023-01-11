@@ -460,6 +460,9 @@ a:hover.disabled {
 .cards .item > .img.python {
   background-position: -160px -160px;
 }
+.cards .item > .img.java {
+  background-position: -240px -160px;
+}
 
 .cards .item > .title {
   position: relative;
