@@ -1,0 +1,25 @@
+<h1>BOJ Extended</h1>
+
+<ul>
+  <li><i class="icon fa-github"></i> <a href="https://github.com/joonas-yoon/quick-draw-clone" target="_blank">GitHub repository</a></li>
+  <li><i class="icon fas fa-link"></i> <a href="https://www.joonas.io/quick-draw-clone/" target="_blank">Play here</a></li>
+</ul>
+
+<br>
+
+<p>Google Deepmind에서 출시했던 서비스의 clone 버전으로, 유저가 345개의 그림 중 하나를 그리면 컴퓨터가 그림을 보고 정답을 맞추는 게임이다.</p>
+
+<p>머신러닝 모델을 Web 플랫폼에서 로컬 자원을 사용한 형태로 구현하는 것이 목표였다.</p>
+
+<div class="text-center">
+  <img src="images/quick-draw-preview.gif" style="max-width: 640px;"/>
+  <p><i>Preview</i></p>
+</div>
+
+<p>모델은 PyTorch로 작성하였으며 PyLighting으로 여러 파라미터를 실험해보며 간단한 CNN 모델로 345개 클래스에 대해 정확도 84% 정도까지 학습했다.</p>
+
+<p>추후에 ResNet 기반으로도 모델을 학습할 계획이 있지만, 우선 게임의 모습을 완성하기 위해서 파이프라인을 만드는 것을 우선으로 개발했다.</p>
+
+<p>웹 프론트엔드는 별도의 프레임워크 없이 Vanilla javascript로 구현하였으며, 게임 특성상 Canvas만 다루다보니 UI Component의 변경이 거의 없다.</p>
+
+<p>모델을 웹에서 실행하기 위해서 ONNX 모델로 변환하여 ONNX.js를 통해 이식했다.</p>
