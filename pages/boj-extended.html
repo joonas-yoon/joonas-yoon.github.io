@@ -1,0 +1,39 @@
+<h1>BOJ Extended</h1>
+
+<p>
+  <a href="https://chromewebstore.google.com/detail/boj-extended/mfcaadoifdifdnigjmfbekjbhehibfel" target="_blank" class="button-web-store">
+    <img src="images/chrome-web-store.png"/>
+  </a>
+</p>
+
+<ul>
+  <li><i class="icon fa-github"></i> <a href="https://github.com/joonas-yoon/boj-extended/" target="_blank">GitHub repository</a></li>
+  <li><i class="icon fas fa-link"></i> <a href="https://blog.joonas.io/207" target="_blank">Blog post - &lt;BOJ Extended를 만들고 1년이 지났다.&gt;</a></li>
+</ul>
+
+<br>
+
+<h1>배경 및 설명</h1>
+
+<p>백준 온라인 저지(<a href="https://www.acmicpc.net" target="_blank">https://www.acmicpc.net</a>, 이하 BOJ) 사이트에서 사라진 기능을 복원하고, 더 많은 기능을 지원하는 브라우저 확장 프로그램.</p>
+
+<p>대표적인 기능으로는 다크모드 지원과 문제 타이머, ctrl+/ 키를 통한 빠른 검색이 있다.</p>
+
+<p>2019년 1.0.0 버전의 첫 배포를 시작으로, (2024년 5월 기준) Chrome Web Store 통계로 약 6,000명의 사용자를 가진 크롬 확장 프로그램이 되었다.</p>
+
+<div class="text-center">
+  <img src="https://github.com/joonas-yoon/boj-extended/raw/main/docs/images/screenshot-theme-dark.png" class="rounded mx-3 my-3 d-inline" style="width:100%; max-width: 480px;" />
+  <img src="https://github.com/joonas-yoon/boj-extended/raw/main/docs/images/screenshot-search.png" class="rounded mx-3 my-3 d-inline" style="width:100%; max-width: 480px;" />
+  <p><i>Main features</i></p>
+</div>
+
+<p>BOJ의 UI를 해치지 않는 선에서 유용한 UX를 제공하는 것이 목표이다. 그 예로 문제 번호(1000번)로만 표기되는 텍스트를 문제 제목과 함께 표기(1000번 - A+B)하는 등이 있다.</p>
+
+<p>BOJ를 직접 사용하면서 개인적으로 개선되었으면 하는 내용들을 이슈에 기록해두었다가 여유로운 시간에 구현하는 방식이다.</p>
+
+<p>
+  외부 라이브러리나 사이트의 의존성은 최대한 피하는 편이지만, 일부분에서는 BOJ를 직접 크롤링하기보다는 이미 BOJ의 2nd party가 된 <a href="https://solved.ac/">solved.ac</a>의 API를 사용하고 있다.
+  <br>
+  하지만 이 역시 외부로의 HTTP Request/Response가 많아 클라이언트와 API 서버쪽 모두 데이터 송수신에 부하가 있다고 생각하여, 로컬 캐싱 등을 최대한 활용하여 필요한 정보만 최소 횟수로 요청하고 있다.
+</p>
+
